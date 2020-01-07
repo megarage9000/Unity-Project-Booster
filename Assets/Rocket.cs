@@ -6,9 +6,11 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     // Start is called before the first frame update
+    Rigidbody rigidBody;
+    int multiplier = 5;
     void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -21,14 +23,16 @@ public class Rocket : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("Thrusters initiated"); 
+            rigidBody.AddRelativeForce(Vector3.up * multiplier);
         }
         if (Input.GetKey(KeyCode.A))
         {
+            rigidBody.AddRelativeForce(Vector3.right * -multiplier);
             Debug.Log("Rotate Left");
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            rigidBody.AddRelativeForce(Vector3.right * multiplier);
             Debug.Log("Rotate Right");
         }
     }
