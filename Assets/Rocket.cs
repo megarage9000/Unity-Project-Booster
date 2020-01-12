@@ -6,16 +6,20 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     // Start is called before the first frame update
-    Rigidbody rigidBody;
-    Transform transform;
-    int multiplier = 5;
+
+    //Components of rocket
+    private Rigidbody rigidBody;
+    private AudioSource audio;
+
+
+    //Fields for use
     Vector3 rotation;
     float angle = 2;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        transform = GetComponent<Transform>();
-        
+        audio = GetComponent<AudioSource>();        
     }
 
     // Update is called once per frame
@@ -24,12 +28,24 @@ public class Rocket : MonoBehaviour
         ProcessInput();   
     }
 
+    // Handles the input of the Rocket
+    // - Rotation and thrusters
     private void ProcessInput()
     {
-        rotation = new Vector3(0, 0, 0);
+        
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidBody.AddRelativeForce(Vector3.up * multiplier);
+            rigidBody.AddRelativeForce(Vector3.up);
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+            
+            Debug.Log("Rocket Thruster initiated");
+        }
+        else
+        {
+            audio.Stop();
         }
         if (Input.GetKey(KeyCode.A))
         {
