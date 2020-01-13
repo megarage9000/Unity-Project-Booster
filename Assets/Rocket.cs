@@ -30,6 +30,21 @@ public class Rocket : MonoBehaviour
         
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                Debug.Log("Friendly!");
+                break;
+
+            default:
+                Debug.Log("Dead");
+                break;
+
+        }
+    }
+
     // Handles the input of the Rocket
     // - Rotation and thrusters
     private void Rotate()
