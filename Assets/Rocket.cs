@@ -11,10 +11,11 @@ public class Rocket : MonoBehaviour
     //Components of rocket
     private Rigidbody rigidBody;
     private AudioSource audio;
+   
 
     [SerializeField] float rcsRotationSpeed = 100f;
     [SerializeField] float rcsThrusterSpeed = 100f;
-
+    [SerializeField] float rcsGravityModifier = 5f;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -49,9 +50,11 @@ public class Rocket : MonoBehaviour
     // - Rotation and thrusters
     private void Rotate()
     {
-        rigidBody.freezeRotation = true; //Freeze rotation prior to rotation
+        //Freeze rotation prior to rotation
+        rigidBody.freezeRotation = true;
 
-        float rotationAtFrame = rcsRotationSpeed * Time.deltaTime; //Calculating rotation per frame with deltaTime for consistent rotation
+        //Calculating rotation per frame with deltaTime for consistent rotation
+        float rotationAtFrame = rcsRotationSpeed * Time.deltaTime; 
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -64,7 +67,8 @@ public class Rocket : MonoBehaviour
             Debug.Log("Rotate Right");
         }
 
-        rigidBody.freezeRotation = false; //Enabling rotation after rotation has been added
+        //Enabling rotation after rotation has been added
+        rigidBody.freezeRotation = false; 
 
     }
 
@@ -72,12 +76,14 @@ public class Rocket : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime; //Calculating thrust per frame with deltaTime for conisitent thrusting
+            
+            //Calculating thrust per frame with deltaTime for conisitent thrusting
+            float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime;
 
-            rigidBody.AddRelativeForce(Vector3.up * thrustAtFrame);
+            rigidBody.AddRelativeForce(Vector3.up * thrustAtFrame, ForceMode.Impulse);
 
-           
-            if (!audio.isPlaying) //play thrust audio on press
+            //play thrust audio on press
+            if (!audio.isPlaying) 
             {
                 audio.Play(); 
             }
@@ -86,6 +92,7 @@ public class Rocket : MonoBehaviour
         }
         else
         {
+            rigidBody.AddRelativeForce(Vector3.up * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
             audio.Stop();
         }
     }

@@ -1066,7 +1066,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rcsRotationSpeed: 150
-  rcsThrusterSpeed: 1000
+  rcsThrusterSpeed: 20
+  rcsGravityModifier: 300
 --- !u!54 &631935459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1081,7 +1082,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!1 &3329011103490503706
 GameObject:
