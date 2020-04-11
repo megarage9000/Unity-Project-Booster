@@ -92,6 +92,7 @@ public class Rocket : MonoBehaviour
         }
         else
         {
+            //Reducing gravity by adding a constant opposite force
             rigidBody.AddRelativeForce(Vector3.up * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
             audio.Stop();
         }
