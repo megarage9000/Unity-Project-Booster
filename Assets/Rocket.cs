@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
@@ -12,6 +10,8 @@ public class Rocket : MonoBehaviour
     private Rigidbody rigidBody;
     private AudioSource audio;
    
+    
+
 
     [SerializeField] float rcsRotationSpeed = 100f;
     [SerializeField] float rcsThrusterSpeed = 100f;
@@ -36,10 +36,15 @@ public class Rocket : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Friendly":
-                Debug.Log("Friendly!");
+                break;
+
+            case "Finish":
+                print("Finish!");
+                SceneManager.LoadScene(1);
                 break;
 
             default:
+                SceneManager.LoadScene(0);
                 Debug.Log("Dead");
                 break;
 
