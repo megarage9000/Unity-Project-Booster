@@ -34,23 +34,26 @@ public class Rocket : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        switch (collision.gameObject.tag)
+        if(state == RocketState.Alive)
         {
-            case "Friendly":
-                break;
+            switch (collision.gameObject.tag)
+            {
+                case "Friendly":
+                    break;
 
-            case "Finish":
-                state = RocketState.Transcending;
-                Invoke("loadNextLevel", 1f);
-                print("Nice, you finished!");
-                break;
+                case "Finish":
+                    state = RocketState.Transcending;
+                    Invoke("loadNextLevel", 1f);
+                    print("Nice, you finished!");
+                    break;
 
-            default:
-                state = RocketState.Dead;
-                Invoke("loadFirstLevel", 1f);
-                print("Restarting...");
-                break;
+                default:
+                    state = RocketState.Dead;
+                    Invoke("loadFirstLevel", 1f);
+                    print("Restarting...");
+                    break;
 
+            }
         }
     }
 
