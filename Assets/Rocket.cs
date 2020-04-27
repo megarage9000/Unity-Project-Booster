@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    // Start is called before the first frame update
-
+    
+    enum RocketState { Alive, Transcending, Dead}
 
     //Components of rocket
     private Rigidbody rigidBody;
     private AudioSource audio;
-   
-    
-
+    private RocketState state = RocketState.Alive;
 
     [SerializeField] float rcsRotationSpeed = 100f;
     [SerializeField] float rcsThrusterSpeed = 100f;
@@ -26,9 +24,12 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Thrust();
-        Rotate();
-        
+        if(state == RocketState.Alive)
+        {
+            Thrust();
+            Rotate();
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -39,18 +40,31 @@ public class Rocket : MonoBehaviour
                 break;
 
             case "Finish":
-                print("Finish!");
-                SceneManager.LoadScene(1);
+                state = RocketState.Transcending;
+                Invoke("loadNextLevel", 1f);
+                print("Nice, you finished!");
                 break;
 
             default:
-                SceneManager.LoadScene(0);
-                Debug.Log("Dead");
+                state = RocketState.Dead;
+                Invoke("loadFirstLevel", 1f);
+                print("Restarting...");
                 break;
 
         }
     }
 
+    private void loadNextLevel()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void loadFirstLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+        
+                                
     // Handles the input of the Rocket
     // - Rotation and thrusters
     private void Rotate()
@@ -102,4 +116,6 @@ public class Rocket : MonoBehaviour
             audio.Stop();
         }
     }
+
+    
 }
