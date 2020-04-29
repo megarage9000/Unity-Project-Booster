@@ -9,16 +9,19 @@ public class Rocket : MonoBehaviour
     //Components of rocket
     private Rigidbody rigidBody;
     private AudioSource audio;
-    private RocketState state = RocketState.Alive;
+    private RocketState state;
+    
 
     [SerializeField] float rcsRotationSpeed = 100f;
     [SerializeField] float rcsThrusterSpeed = 100f;
     [SerializeField] float rcsGravityModifier = 5f;
+    [SerializeField] AudioClip mainEngine;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         audio = GetComponent<AudioSource>();
-        
+        state = RocketState.Alive;
+
     }
 
     // Update is called once per frame
@@ -115,7 +118,7 @@ public class Rocket : MonoBehaviour
         else
         {
             //Reducing gravity by adding a constant opposite force
-            rigidBody.AddRelativeForce(Vector3.up * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
+            rigidBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
             audio.Stop();
         }
     }
