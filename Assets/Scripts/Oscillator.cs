@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [DisallowMultipleComponent]
 public class Oscillator : MonoBehaviour
@@ -23,7 +24,7 @@ public class Oscillator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Assert.IsTrue(period > Mathf.Epsilon);
         // Sine work
         float cycles = Time.time / period;
         float rawSineWave = Mathf.Sin(cycles * TAU);
