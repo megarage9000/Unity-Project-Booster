@@ -1068,7 +1068,9 @@ MonoBehaviour:
   rcsRotationSpeed: 150
   rcsThrusterSpeed: 20
   rcsGravityModifier: 300
-  mainEngine: {fileID: 0}
+  mainEngine: {fileID: 8300000, guid: 828a1d64451cee849bf4a7afbe57aa5d, type: 3}
+  deathNoise: {fileID: 8300000, guid: ae1aa899d1b078a48a6d0b8e9b80f3dd, type: 3}
+  newLevelChime: {fileID: 8300000, guid: e7e739db258c4cb4da23714c5a3487d4, type: 3}
 --- !u!54 &631935459
 Rigidbody:
   m_ObjectHideFlags: 0

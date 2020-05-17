@@ -16,6 +16,8 @@ public class Rocket : MonoBehaviour
     [SerializeField] float rcsThrusterSpeed = 100f;
     [SerializeField] float rcsGravityModifier = 5f;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip deathNoise;
+    [SerializeField] AudioClip newLevelChime;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -29,8 +31,8 @@ public class Rocket : MonoBehaviour
     {
         if(state == RocketState.Alive)
         {
-            Thrust();
-            Rotate();
+            RespondToThrustInput();
+            RespondToRotationInput();
         }
 
     }
@@ -45,19 +47,33 @@ public class Rocket : MonoBehaviour
                     break;
 
                 case "Finish":
-                    state = RocketState.Transcending;
-                    Invoke("loadNextLevel", 1f);
-                    print("Nice, you finished!");
+                    ExecuteTranscending();
                     break;
 
                 default:
-                    state = RocketState.Dead;
-                    Invoke("loadFirstLevel", 1f);
-                    print("Restarting...");
+                    ExecuteDeath(); 
                     break;
 
             }
         }
+    }
+
+    
+
+    private void ExecuteTranscending()
+    {
+        state = RocketState.Transcending;
+        audio.Stop();
+        audio.PlayOneShot(newLevelChime);
+        Invoke("loadNextLevel", 1f);
+    }
+
+    private void ExecuteDeath()
+    {
+        state = RocketState.Dead;
+        audio.Stop();
+        audio.PlayOneShot(deathNoise);
+        Invoke("loadFirstLevel", 1f);
     }
 
     private void loadNextLevel()
@@ -73,7 +89,7 @@ public class Rocket : MonoBehaviour
                                 
     // Handles the input of the Rocket
     // - Rotation and thrusters
-    private void Rotate()
+    private void RespondToRotationInput()
     {
         //Freeze rotation prior to rotation
         rigidBody.freezeRotation = true;
@@ -97,23 +113,11 @@ public class Rocket : MonoBehaviour
 
     }
 
-    private void Thrust()
+    private void RespondToThrustInput()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            
-            //Calculating thrust per frame with deltaTime for conisitent thrusting
-            float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime;
-
-            rigidBody.AddRelativeForce(Vector3.up * thrustAtFrame, ForceMode.Impulse);
-
-            //play thrust audio on press
-            if (!audio.isPlaying) 
-            {
-                audio.Play(); 
-            }
-
-            Debug.Log("Rocket Thruster initiated");
+            ApplyThrust();
         }
         else
         {
@@ -123,5 +127,18 @@ public class Rocket : MonoBehaviour
         }
     }
 
-    
+    private void ApplyThrust()
+    {
+        //Calculating thrust per frame with deltaTime for conisitent thrusting
+        float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime;
+
+        rigidBody.AddRelativeForce(Vector3.up * thrustAtFrame, ForceMode.Impulse);
+
+        //play thrust audio on press
+        if (!audio.isPlaying)
+        {
+            audio.PlayOneShot(mainEngine);
+        }
+    }
+
 }
