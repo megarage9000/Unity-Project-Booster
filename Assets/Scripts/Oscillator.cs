@@ -7,11 +7,11 @@ public class Oscillator : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] Vector3 movementVector;
+    [SerializeField] Vector3 movementVector = new Vector3(10f, 10f, 10f);
+    [SerializeField] float period = 2f;
+    const float TAU = Mathf.PI  * 2;
 
-    //TODO remove from inspector
-    [Range(0, 1)][SerializeField] float movementFactor;
-
+    float movementFactor;
     Vector3 startingPosition;
 
 
@@ -23,6 +23,13 @@ public class Oscillator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // Sine work
+        float cycles = Time.time / period;
+        float rawSineWave = Mathf.Sin(cycles * TAU);
+        
+        // Applying Sine wave to obstacle movement
+        movementFactor = rawSineWave / 2f + 0.5f;
         Vector3 offset = movementFactor * movementVector;
         transform.position = startingPosition + offset;
     }
