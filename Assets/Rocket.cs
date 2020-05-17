@@ -15,9 +15,15 @@ public class Rocket : MonoBehaviour
     [SerializeField] float rcsRotationSpeed = 100f;
     [SerializeField] float rcsThrusterSpeed = 100f;
     [SerializeField] float rcsGravityModifier = 5f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip deathNoise;
     [SerializeField] AudioClip newLevelChime;
+
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem deathNoiseParticles;
+    [SerializeField] ParticleSystem newLevelChimeParticles;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -65,6 +71,7 @@ public class Rocket : MonoBehaviour
         state = RocketState.Transcending;
         audio.Stop();
         audio.PlayOneShot(newLevelChime);
+        newLevelChimeParticles.Play();
         Invoke("loadNextLevel", 1f);
     }
 
@@ -73,6 +80,7 @@ public class Rocket : MonoBehaviour
         state = RocketState.Dead;
         audio.Stop();
         audio.PlayOneShot(deathNoise);
+        deathNoiseParticles.Play();
         Invoke("loadFirstLevel", 1f);
     }
 
@@ -124,6 +132,7 @@ public class Rocket : MonoBehaviour
             //Reducing gravity by adding a constant opposite force
             rigidBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
             audio.Stop();
+            mainEngineParticles.Stop();
         }
     }
 
@@ -138,6 +147,7 @@ public class Rocket : MonoBehaviour
         if (!audio.isPlaying)
         {
             audio.PlayOneShot(mainEngine);
+            mainEngineParticles.Play();
         }
     }
 
