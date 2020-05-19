@@ -5,18 +5,22 @@ using UnityEngine;
 public class ThrusterControl : MonoBehaviour
 {
 
+    private const int LEFT_DIRECTION = 1;
+    private const int RIGHT_DIRECTION = -1;
+
     [SerializeField] float rcsRotationSpeed = 100f;
     [SerializeField] float rcsThrusterSpeed = 100f;
     [SerializeField] float rcsGravityModifier = 5f;
-    [SerializeField] Rigidbody rigidBody;
+    [SerializeField] Rigidbody rocketShipBody;
     [SerializeField] AudioClip thrusterNoise;
 
     private bool canControlThrust;
-    private const int LEFT_DIRECTION = 1;
-    private const int RIGHT_DIRECTION = -1;
+    private AudioSource audio;
+
     public void Start()
     {
         canControlThrust = true;
+        audio = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -33,10 +37,16 @@ public class ThrusterControl : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             ApplyThrust();
+            if (!audio.isPlaying)
+            {
+                audio.PlayOneShot(thrusterNoise);
+            }
+            
         }
         else
         {
-            rigidBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
+            rocketShipBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
+            audio.Stop();
         }
     }
 
@@ -68,7 +78,7 @@ public class ThrusterControl : MonoBehaviour
     {
         //Calculating thrust per frame with deltaTime for conisitent thrusting
         float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime;
-        rigidBody.AddRelativeForce(transform.up * thrustAtFrame, ForceMode.Impulse);
+        rocketShipBody.AddRelativeForce(transform.up * thrustAtFrame, ForceMode.Impulse);
     }
 
  
@@ -76,6 +86,7 @@ public class ThrusterControl : MonoBehaviour
     public void DisableThrusterControl()
     {
         canControlThrust = false;
+        audio.Stop();
     }
 
 }

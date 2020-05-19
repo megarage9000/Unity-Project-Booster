@@ -2,17 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretControl : MonoBehaviour
+public abstract class TurretControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private bool canControlTurret = true;
+    [SerializeField] protected Transform turretBarrel;
+    [SerializeField] protected Transform turretBody;
+
+    protected void RotateTurret(Quaternion newRotation)
     {
-        
+        turretBody.rotation = newRotation;
+        Debug.Log("Rotation of turret: " + turretBody.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected abstract void CalculateTurretRotation();
+    protected abstract void FireTurret();
+    protected abstract void OperateTurret();
+
+    private void Update()
     {
-        
+        if (canControlTurret)
+        {
+            OperateTurret();
+        }   
+    }
+
+    public void disableTurretControl()
+    {
+        canControlTurret = false;
     }
 }
