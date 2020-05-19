@@ -1,5 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Rocket : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Rocket : MonoBehaviour
     private Rigidbody rigidBody;
     private AudioSource audio;
     private RocketState state;
+
+    public UnityEvent disableRocketControl;
     
 
     [SerializeField] float rcsRotationSpeed = 100f;
@@ -21,10 +24,10 @@ public class Rocket : MonoBehaviour
     [SerializeField] AudioClip deathNoise;
     [SerializeField] AudioClip newLevelChime;
 
-
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem deathNoiseParticles;
     [SerializeField] ParticleSystem newLevelChimeParticles;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -38,8 +41,8 @@ public class Rocket : MonoBehaviour
     {
         if(state == RocketState.Alive)
         {
-            RespondToThrustInput();
-            RespondToRotationInput();
+            //RespondToThrustInput();
+            //RespondToRotationInput();
         }
 
     }
@@ -58,7 +61,8 @@ public class Rocket : MonoBehaviour
                     break;
 
                 default:
-                    ExecuteDeath(); 
+                    ExecuteDeath();
+                    disableRocketControl.Invoke();
                     break;
 
             }
