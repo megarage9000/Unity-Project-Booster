@@ -13,6 +13,8 @@ public class ThrusterControl : MonoBehaviour
     [SerializeField] float rcsGravityModifier = 5f;
     [SerializeField] Rigidbody rocketShipBody;
     [SerializeField] AudioClip thrusterNoise;
+    [SerializeField] ParticleSystem leftJetParticles;
+    [SerializeField] ParticleSystem rightJetParticles;
 
     private bool canControlThrust;
     private AudioSource audio;
@@ -30,6 +32,11 @@ public class ThrusterControl : MonoBehaviour
             CheckThrustInput();
             CheckRotationInput();
         }
+        else
+        {
+            stopParticles();
+            audio.Stop();
+        }
     }
 
     public void CheckThrustInput()
@@ -40,53 +47,68 @@ public class ThrusterControl : MonoBehaviour
             if (!audio.isPlaying)
             {
                 audio.PlayOneShot(thrusterNoise);
+                playParticles();
             }
             
         }
         else
         {
-            rocketShipBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
+            rocketShipBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Force);
             audio.Stop();
+            stopParticles();
         }
     }
 
     public void CheckRotationInput()
     {
-        
+        rocketShipBody.freezeRotation = true;
+
         if (Input.GetKey(KeyCode.A))
         {
             ApplyRotation(LEFT_DIRECTION);
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             ApplyRotation(RIGHT_DIRECTION);
         }
 
+        rocketShipBody.freezeRotation = false;
+
         //Enabling rotation after rotation has been added
-        
     }
 
     private void ApplyRotation(int direction)
     {
         //Calculating rotation per frame with deltaTime for consistent rotation
         float rotationAtFrame = rcsRotationSpeed * Time.deltaTime;
-        transform.Rotate(direction * Vector3.forward * rotationAtFrame);
-       
+        transform.Rotate(direction * Vector3.forward * rotationAtFrame);   
     }
 
     private void ApplyThrust()
     {
         //Calculating thrust per frame with deltaTime for conisitent thrusting
         float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime;
-        rocketShipBody.AddRelativeForce(transform.up * thrustAtFrame, ForceMode.Impulse);
+        rocketShipBody.AddRelativeForce(this.transform.up * thrustAtFrame, ForceMode.VelocityChange);
     }
 
- 
+    private void playParticles()
+    {
+        leftJetParticles.Play();
+        rightJetParticles.Play();
+    }
+
+    private void stopParticles()
+    {
+        leftJetParticles.Stop();
+        rightJetParticles.Stop();
+    }
 
     public void DisableThrusterControl()
     {
         canControlThrust = false;
         audio.Stop();
     }
+
+
 
 }

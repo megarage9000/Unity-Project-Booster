@@ -7,19 +7,12 @@ public abstract class TurretControl : MonoBehaviour
 
     private bool canControlTurret = true;
     [SerializeField] protected Transform turretBarrel;
-    [SerializeField] protected Transform turretBody;
 
-    protected void RotateTurret(Quaternion newRotation)
-    {
-        turretBody.rotation = newRotation;
-        Debug.Log("Rotation of turret: " + turretBody.rotation);
-    }
-
-    protected abstract void CalculateTurretRotation();
+    protected abstract void RotateTurret();
     protected abstract void FireTurret();
     protected abstract void OperateTurret();
 
-    private void Update()
+    public void Update()
     {
         if (canControlTurret)
         {
@@ -27,7 +20,7 @@ public abstract class TurretControl : MonoBehaviour
         }   
     }
 
-    public void disableTurretControl()
+    public void DisableTurretControl()
     {
         canControlTurret = false;
     }

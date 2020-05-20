@@ -15,36 +15,17 @@ public class Rocket : MonoBehaviour
     public UnityEvent disableRocketControl;
     
 
-    [SerializeField] float rcsRotationSpeed = 100f;
-    [SerializeField] float rcsThrusterSpeed = 100f;
-    [SerializeField] float rcsGravityModifier = 5f;
-    [SerializeField] float levelLoadDelay = 1f;
 
-    [SerializeField] AudioClip mainEngine;
+    [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] AudioClip deathNoise;
     [SerializeField] AudioClip newLevelChime;
-
-    [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem deathNoiseParticles;
     [SerializeField] ParticleSystem newLevelChimeParticles;
 
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
         audio = GetComponent<AudioSource>();
         state = RocketState.Alive;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(state == RocketState.Alive)
-        {
-            //RespondToThrustInput();
-            //RespondToRotationInput();
-        }
-
     }
 
     void OnCollisionEnter(Collision collision)
@@ -99,61 +80,6 @@ public class Rocket : MonoBehaviour
         SceneManager.LoadScene(0);
     }
         
-                                
-    // Handles the input of the Rocket
-    // - Rotation and thrusters
-    private void RespondToRotationInput()
-    {
-        //Freeze rotation prior to rotation
-        rigidBody.freezeRotation = true;
-
-        //Calculating rotation per frame with deltaTime for consistent rotation
-        float rotationAtFrame = rcsRotationSpeed * Time.deltaTime; 
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward * rotationAtFrame);
-            Debug.Log("Rotate Left");
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.forward * rotationAtFrame);
-            Debug.Log("Rotate Right");
-        }
-
-        //Enabling rotation after rotation has been added
-        rigidBody.freezeRotation = false; 
-
-    }
-
-    private void RespondToThrustInput()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            ApplyThrust();
-        }
-        else
-        {
-            //Reducing gravity by adding a constant opposite force
-            rigidBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Acceleration);
-            audio.Stop();
-            mainEngineParticles.Stop();
-        }
-    }
-
-    private void ApplyThrust()
-    {
-        //Calculating thrust per frame with deltaTime for conisitent thrusting
-        float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime;
-
-        rigidBody.AddRelativeForce(Vector3.up * thrustAtFrame, ForceMode.Impulse);
-
-        //play thrust audio on press
-        if (!audio.isPlaying)
-        {
-            audio.PlayOneShot(mainEngine);
-            mainEngineParticles.Play();
-        }
-    }
+                             
 
 }

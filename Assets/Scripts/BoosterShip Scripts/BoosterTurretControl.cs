@@ -4,29 +4,15 @@ using UnityEngine;
 
 public class BoosterTurretControl : TurretControl
 {
+    private const float ANGLE_OFFSET = 90f;
 
     [SerializeField] float mouseSensitivity = 5f;
 
-    LayerMask castBackground;
+    Camera camera;
 
     private void Awake()
     {
-        castBackground = LayerMask.GetMask("MouseRayCast");
-    }
-
-    protected override void CalculateTurretRotation()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-        Ray castPoint = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, castBackground))
-        {
-            Vector3 mouseToTurret = new Vector3(hit.point.x, hit.point.y) - new Vector3(turretBody.position.x, turretBody.position.y);
-            mouseToTurret.z = 0;
-            Quaternion newRotation = Quaternion.FromToRotation(new Vector3(turretBody.position.x, turretBody.position.y), mouseToTurret);
-            RotateTurret(newRotation);
-        }
-
+        camera = Camera.main;
     }
 
     protected override void FireTurret()
@@ -36,6 +22,18 @@ public class BoosterTurretControl : TurretControl
 
     protected override void OperateTurret()
     {
-        CalculateTurretRotation();
+        RotateTurret();
+    }
+
+    protected override void RotateTurret()
+    {
+        Vector2 transformScreenPosition = camera.WorldToScreenPoint(transform.position);
+        Vector2 targetPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+        Vector2 directionToLook = targetPosition - transformScreenPosition;
+        float angleZ = Mathf.Atan2(directionToLook.y, directionToLook.x) * Mathf.Rad2Deg;
+
+        Quaternion newRotation = Quaternion.Euler(new Vector3(0f, 0f, angleZ - ANGLE_OFFSET));
+        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * mouseSensitivity); 
     }
 }
