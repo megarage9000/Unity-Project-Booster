@@ -21,9 +21,7 @@ public class BoosterTurretControl : TurretControl
     protected override void FireTurret()
     {
         GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
-        projectileInstance.SetProjectileSpeed(projectileSpeed);
-        projectileInstance.SetProjectileExpiration(10f);
-        projectileInstance.Fire();
+        
     }
 
     private void RespondToCLick()
