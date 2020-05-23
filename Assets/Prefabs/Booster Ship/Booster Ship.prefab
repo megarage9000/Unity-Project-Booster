@@ -1230,7 +1230,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5730650471598222554}
-        m_MethodName: disableTurretControl
+        m_MethodName: DisableTurretControl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1897,6 +1897,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBarrel: {fileID: 815832331407058561}
   mouseSensitivity: 5
+  projectileSpeed: 100
+  projectileExpiration: 2
+  projectile: {fileID: 4148262981869006160, guid: 7a096a45c222fc04e8da027aa95978d6,
+    type: 3}
 --- !u!1 &4836184423028167506
 GameObject:
   m_ObjectHideFlags: 0

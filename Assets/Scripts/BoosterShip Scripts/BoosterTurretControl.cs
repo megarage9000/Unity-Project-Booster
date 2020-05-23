@@ -8,20 +8,23 @@ public class BoosterTurretControl : TurretControl
 
     [SerializeField] float mouseSensitivity = 5f;
     [SerializeField] float projectileSpeed = 100f;
-    GameObject projectile;
+    [SerializeField] float projectileExpiration = 2f;
 
+    public GameObject projectile;
     Camera camera;
 
     private void Awake()
     {
-        camera = Camera.main;
-        
+        camera = Camera.main;  
     }
 
     protected override void FireTurret()
     {
         GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
-        
+        BoosterProjectile projectileScript = projectileInstance.GetComponent<BoosterProjectile>();
+        projectileScript.SetProjectileExpiration(projectileExpiration);
+        projectileScript.SetProjectileSpeed(projectileSpeed);
+        projectileScript.Fire();
     }
 
     private void RespondToCLick()

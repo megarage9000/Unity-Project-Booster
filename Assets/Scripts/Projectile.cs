@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
 {
 
-    Rigidbody bulletBody;
-    float projectileSpeed;
+    private Rigidbody bulletBody;
+    private float projectileSpeed;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public abstract class Projectile : MonoBehaviour
 
     public void Fire()
     {
-        bulletBody.AddRelativeForce(transform.up * projectileSpeed);
+        bulletBody.velocity = transform.up * projectileSpeed;
     }
 
     public void SetProjectileExpiration(float timeUntilDelete)
