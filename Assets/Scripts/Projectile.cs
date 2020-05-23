@@ -6,28 +6,51 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
 
+    private const float DEFAULT_RANGE = 100f;
+    private const float DEFAULT_SPEED = 100f;
+
     private Rigidbody bulletBody;
     private float projectileSpeed;
+    private float projectileRange;
+    private Vector3 initialPosition;
 
     private void Awake()
     {
         bulletBody = GetComponent<Rigidbody>();
-        projectileSpeed = 10f;
+        projectileSpeed = DEFAULT_SPEED;
+        projectileRange = DEFAULT_RANGE;
+        initialPosition = transform.position;
+    }
+
+    private void Start()
+    {
+        SetupProjectile();
     }
 
     public void Fire()
     {
         bulletBody.velocity = transform.up * projectileSpeed;
+        StartCoroutine(DeleteProjectileInstance(projectileRange));
     }
 
-    public void SetProjectileExpiration(float timeUntilDelete)
-    {
-        Destroy(gameObject, timeUntilDelete);
-    }
+    public void SetProjectileRange(float range){ projectileRange = range;}
 
-    public void SetProjectileSpeed(float speed)
+    public void SetProjectileSpeed(float speed){ projectileSpeed = speed;}
+
+    public abstract void OnFire();
+
+    public abstract void OnDelete();
+
+    public abstract void SetupProjectile();
+
+    IEnumerator DeleteProjectileInstance(float distance)
     {
-        projectileSpeed = speed;
+        while(Vector3.Distance(transform.position, initialPosition) < distance)
+        {
+            yield return null;
+        }
+
+        OnDelete();
     }
 
 }

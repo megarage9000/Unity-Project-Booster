@@ -5,26 +5,13 @@ using UnityEngine;
 public class BoosterTurretControl : TurretControl
 {
     private const float ANGLE_OFFSET = 90f;
-
     [SerializeField] float mouseSensitivity = 5f;
-    [SerializeField] float projectileSpeed = 100f;
-    [SerializeField] float projectileExpiration = 2f;
-
-    public GameObject projectile;
+  
     Camera camera;
 
     private void Awake()
     {
         camera = Camera.main;  
-    }
-
-    protected override void FireTurret()
-    {
-        GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
-        BoosterProjectile projectileScript = projectileInstance.GetComponent<BoosterProjectile>();
-        projectileScript.SetProjectileExpiration(projectileExpiration);
-        projectileScript.SetProjectileSpeed(projectileSpeed);
-        projectileScript.Fire();
     }
 
     private void RespondToCLick()

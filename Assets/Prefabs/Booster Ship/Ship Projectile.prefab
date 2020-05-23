@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4749c2d9fa0ebd645a44cd70bcf41875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boosterProjectileSpeed: 100
+  boosterProjectileRange: 25
 --- !u!54 &5452801186824324320
 Rigidbody:
   m_ObjectHideFlags: 0

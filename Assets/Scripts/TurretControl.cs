@@ -6,10 +6,16 @@ public abstract class TurretControl : MonoBehaviour
 {
 
     private bool canControlTurret = true;
+    public GameObject projectile;
     [SerializeField] protected Transform turretBarrel;
 
+    protected void FireTurret()
+    {
+        GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
+    }
+
     protected abstract void RotateTurret();
-    protected abstract void FireTurret();
+    
     protected abstract void OperateTurret();
 
     public void Update()

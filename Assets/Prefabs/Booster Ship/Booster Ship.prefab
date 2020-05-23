@@ -968,7 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76fc5a2264119348915440c9d7fff34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rcsRotationSpeed: 150
+  rcsRotationSpeed: 300
   rcsThrusterSpeed: 20
   rcsGravityModifier: 300
   rocketShipBody: {fileID: 631935459}
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   turretBarrel: {fileID: 815832331407058561}
   mouseSensitivity: 5
   projectileSpeed: 100
-  projectileExpiration: 2
+  projectileRange: 25
   projectile: {fileID: 4148262981869006160, guid: 7a096a45c222fc04e8da027aa95978d6,
     type: 3}
 --- !u!1 &4836184423028167506
