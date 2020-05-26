@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boosterProjectileSpeed: 100
-  boosterProjectileRange: 25
+  boosterProjectileRange: 50
 --- !u!54 &5452801186824324320
 Rigidbody:
   m_ObjectHideFlags: 0
