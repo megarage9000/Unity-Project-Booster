@@ -14,7 +14,7 @@ public abstract class Projectile : MonoBehaviour
     private float projectileRange;
     private Vector3 initialPosition;
 
-    private void Awake()
+    public void Awake()
     {
         bulletBody = GetComponent<Rigidbody>();
         projectileSpeed = DEFAULT_SPEED;
@@ -29,6 +29,7 @@ public abstract class Projectile : MonoBehaviour
 
     public void Fire()
     {
+        OnFire();
         bulletBody.velocity = transform.up * projectileSpeed;
         StartCoroutine(DeleteProjectileInstance(projectileRange));
     }

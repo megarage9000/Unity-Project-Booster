@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 631935459}
   m_Layer: 0
   m_Name: Booster Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1895,12 +1895,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e958cee68b3db4abf77939f5fdec8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretBarrel: {fileID: 815832331407058561}
-  mouseSensitivity: 5
-  projectileSpeed: 100
-  projectileRange: 25
   projectile: {fileID: 4148262981869006160, guid: 7a096a45c222fc04e8da027aa95978d6,
     type: 3}
+  turretBarrel: {fileID: 815832331407058561}
+  mouseSensitivity: 5
+  turretNoise: {fileID: 8300000, guid: 6bb0bd388c0dae243a91a63d4d035a9c, type: 3}
 --- !u!1 &4836184423028167506
 GameObject:
   m_ObjectHideFlags: 0

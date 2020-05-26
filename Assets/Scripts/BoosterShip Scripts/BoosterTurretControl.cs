@@ -6,18 +6,22 @@ public class BoosterTurretControl : TurretControl
 {
     private const float ANGLE_OFFSET = 90f;
     [SerializeField] float mouseSensitivity = 5f;
+    [SerializeField] AudioClip turretNoise;
   
-    Camera camera;
+    private Camera camera;
+    private AudioSource audio;
 
     private void Awake()
     {
-        camera = Camera.main;  
+        camera = Camera.main; 
+        audio = GetComponent<AudioSource>();
     }
 
     private void RespondToCLick()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            audio.PlayOneShot(turretNoise);
             FireTurret();
         }
     }
@@ -38,5 +42,11 @@ public class BoosterTurretControl : TurretControl
 
         Quaternion newRotation = Quaternion.Euler(new Vector3(0f, 0f, angleZ - ANGLE_OFFSET));
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * mouseSensitivity); 
+    }
+
+    public void DisableTurretControl()
+    {
+        base.DisableTurretControl();
+        audio.Stop();
     }
 }

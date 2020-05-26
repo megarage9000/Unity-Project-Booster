@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 
 public class BoosterProjectile : Projectile
@@ -7,6 +9,8 @@ public class BoosterProjectile : Projectile
 
     [SerializeField] float boosterProjectileSpeed = 100f;
     [SerializeField] float boosterProjectileRange = 2f;
+
+   
     public override void OnDelete()
     {
         Debug.Log("Booster Projectile Deleted!");
@@ -15,7 +19,7 @@ public class BoosterProjectile : Projectile
 
     public override void OnFire()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Booster Projectile Fired!");
     }
 
     public override void SetupProjectile()
