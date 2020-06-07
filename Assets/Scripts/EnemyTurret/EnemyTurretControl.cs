@@ -15,14 +15,17 @@ public class EnemyTurretControl : TurretControl
         Vector3 initialAreaCenter = turretScanArea.center;
         Vector3 initialAreaSize = turretScanArea.size;
 
-        turretScanArea.center.Set(initialAreaCenter.x, initialAreaCenter.y + turretScanRange / 2, initialAreaCenter.z);
-        turretScanArea.size.Set(initialAreaSize.x, turretScanRange, initialAreaSize.z);
+        turretScanArea.size = new Vector3(initialAreaSize.x, turretScanRange, initialAreaSize.z);
+        turretScanArea.center = new Vector3(initialAreaCenter.x, initialAreaCenter.y + turretScanRange / 2, initialAreaCenter.z);
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Detected an object!");
+        Vector3 detectedObjectPos = other.gameObject.transform.position;
+        string tag = other.gameObject.tag;
+
+        Debug.Log("Found object with tag: " + tag + " at position: " + detectedObjectPos);
     }
     protected override void OperateTurret()
     {
@@ -35,6 +38,11 @@ public class EnemyTurretControl : TurretControl
     }
 
     private void scan()
+    {
+
+    }
+
+    private void target()
     {
 
     }

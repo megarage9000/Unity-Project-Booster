@@ -30,7 +30,9 @@ public class Rocket : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(state == RocketState.Alive)
+        string tag = collision.gameObject.tag;
+
+        if(state == RocketState.Alive && tag != "Player Projectile")
         {
             switch (collision.gameObject.tag)
             {
