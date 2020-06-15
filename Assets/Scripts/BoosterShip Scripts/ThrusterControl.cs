@@ -88,7 +88,7 @@ public class ThrusterControl : MonoBehaviour
     {
         //Calculating thrust per frame with deltaTime for conisitent thrusting
         float thrustAtFrame = rcsThrusterSpeed * Time.deltaTime;
-        rocketShipBody.AddRelativeForce(this.transform.up * thrustAtFrame, ForceMode.VelocityChange);
+        rocketShipBody.AddForce(this.gameObject.transform.up * thrustAtFrame, ForceMode.VelocityChange);
     }
 
     private void playParticles()

@@ -6,7 +6,9 @@ public class EnemyTurretControl : TurretControl
 {
 
     [SerializeField] float turretScanRange = 50f;
+    [SerializeField] float maxRotationScan = 45f;
     BoxCollider turretScanArea;
+    private bool isTargetFound;
 
     private void Awake()
     {

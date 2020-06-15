@@ -12,6 +12,7 @@ public abstract class TurretControl : MonoBehaviour
     protected void FireTurret()
     {
         GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
+        Physics.IgnoreCollision(projectileInstance.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     protected abstract void RotateTurret();
