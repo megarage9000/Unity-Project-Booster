@@ -32,7 +32,7 @@ public class BoosterTurretControl : TurretControl
         RespondToCLick();
     }
 
-    protected override void RotateTurret()
+    protected void RotateTurret()
     {
         Vector2 transformScreenPosition = camera.WorldToScreenPoint(transform.position);
         Vector2 targetPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
