@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyTurretControl : TurretControl
 {
     const float TAU = Mathf.PI * 2;
-
+    private const float OFFSET = 90f;
     [SerializeField] float turretScanRange = 50f;
     [SerializeField] float maxRotationScan = 90f;
     [SerializeField] float rotationSpeed = 1f;
@@ -17,6 +17,7 @@ public class EnemyTurretControl : TurretControl
 
     private Quaternion leftRotationBound;
     private Quaternion rightRotationBound;
+    private float ANGLE_OFFSET = 90f;
 
     private void Awake()
     {
@@ -74,15 +75,18 @@ public class EnemyTurretControl : TurretControl
         float sin = Mathf.Sin(cycles * TAU);
         float rotationFactor = sin / 2f + 0.5f;
         transform.rotation = Quaternion.Slerp(leftRotationBound, rightRotationBound, rotationFactor);
-        
     }
 
+    // Used similar algorithm to booster control
     private void target()
     {
-        Vector3 targetPosition = GameObject.FindGameObjectWithTag("Player").transform.position;;
+        Vector3 targetPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        Vector2 directionToLook = new Vector2(targetPosition.x, targetPosition.y) - new Vector2(transform.position.x, transform.position.y);
 
-
-        transform.LookAt(targetPosition);
+        float angleZ = Mathf.Atan2(directionToLook.y, directionToLook.x) * Mathf.Rad2Deg;
+        
+        Quaternion newRotation = Quaternion.Euler(new Vector3(0f, 0f, angleZ - OFFSET));
+        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
     }
 
     
