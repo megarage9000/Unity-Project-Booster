@@ -9,10 +9,13 @@ public abstract class Projectile : MonoBehaviour
     private const float DEFAULT_RANGE = 100f;
     private const float DEFAULT_SPEED = 100f;
 
+    [SerializeField] AudioClip onFireSound;
+
     private Rigidbody bulletBody;
     private float projectileSpeed;
     private float projectileRange;
     private Vector3 initialPosition;
+    private AudioSource audio;
 
     public void Awake()
     {
@@ -20,6 +23,7 @@ public abstract class Projectile : MonoBehaviour
         projectileSpeed = DEFAULT_SPEED;
         projectileRange = DEFAULT_RANGE;
         initialPosition = transform.position;
+        audio = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -32,6 +36,7 @@ public abstract class Projectile : MonoBehaviour
         OnFire();
         bulletBody.velocity = transform.up * projectileSpeed;
         StartCoroutine(DeleteProjectileInstance(projectileRange));
+        audio.PlayOneShot(onFireSound);
     }
 
     public void SetProjectileRange(float range){ projectileRange = range;}

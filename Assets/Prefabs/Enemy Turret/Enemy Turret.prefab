@@ -45,7 +45,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 2.25, z: 0}
 --- !u!114 &1539630650469741444
 MonoBehaviour:
@@ -59,12 +59,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e9566c3c9d9c24f889bd50824d3084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 8901510634843816408, guid: fef071919f7680347885ae2aac1b3d6c,
+    type: 3}
   turretBarrel: {fileID: 4727787718203857635}
+  projectilesPerSecond: 1
   turretScanRange: 50
+  turretScanWidth: 5
   maxRotationScan: 90
-  rotationSpeed: 5
-  period: 4
+  scanSpeed: 0.5
+  targetLockOnStrength: 100
 --- !u!1 &1239709779210761948
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +79,7 @@ GameObject:
   - component: {fileID: 5007937493238808553}
   - component: {fileID: 8640539769910755847}
   - component: {fileID: 5887356059596770012}
+  - component: {fileID: 1697316912676035971}
   m_Layer: 0
   m_Name: Enemy Turret
   m_TagString: Enemy
@@ -212,6 +216,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1697316912676035971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239709779210761948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864a865126809ca4b895a8a7878b701b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 657403763082561881}
+  timeUntilActiveTurret: 3
 --- !u!1 &2010428535573507955
 GameObject:
   m_ObjectHideFlags: 0

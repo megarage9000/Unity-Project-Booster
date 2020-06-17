@@ -1930,8 +1930,8 @@ MonoBehaviour:
   projectile: {fileID: 4148262981869006160, guid: 7a096a45c222fc04e8da027aa95978d6,
     type: 3}
   turretBarrel: {fileID: 6737771043960821733}
+  projectilesPerSecond: 20
   mouseSensitivity: 5
-  turretNoise: {fileID: 8300000, guid: 6bb0bd388c0dae243a91a63d4d035a9c, type: 3}
 --- !u!65 &5178824576475733140
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,22 +6,18 @@ public class BoosterTurretControl : TurretControl
 {
     private const float ANGLE_OFFSET = 90f;
     [SerializeField] float mouseSensitivity = 5f;
-    [SerializeField] AudioClip turretNoise;
   
     private Camera camera;
-    private AudioSource audio;
 
     private void Awake()
     {
         camera = Camera.main; 
-        audio = GetComponent<AudioSource>();
     }
 
     private void RespondToCLick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            audio.PlayOneShot(turretNoise);
             FireTurret();
         }
     }
@@ -47,6 +43,5 @@ public class BoosterTurretControl : TurretControl
     public void DisableTurretControl()
     {
         base.DisableTurretControl();
-        audio.Stop();
     }
 }

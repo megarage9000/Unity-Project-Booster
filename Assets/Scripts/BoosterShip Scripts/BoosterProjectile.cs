@@ -9,7 +9,6 @@ public class BoosterProjectile : Projectile
 
     [SerializeField] float boosterProjectileSpeed = 100f;
     [SerializeField] float boosterProjectileRange = 2f;
-
    
     public override void OnDelete()
     {
