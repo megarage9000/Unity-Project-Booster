@@ -4,12 +4,13 @@ using UnityEngine;
 
 public abstract class TurretControl : MonoBehaviour
 {
+    const int MINUTE = 60;
 
     private bool canControlTurret = true;
     private bool canFireTurret = true;
     public GameObject projectile;
     [SerializeField] protected Transform turretBarrel;
-    [SerializeField] private int projectilesPerSecond;
+    [SerializeField] private int projectilesPerMinute;
 
     protected void FireTurret()
     {
@@ -40,7 +41,7 @@ public abstract class TurretControl : MonoBehaviour
     IEnumerator RateOfFireController()
     {
         canFireTurret = false;
-        yield return new WaitForSeconds(1 / projectilesPerSecond);
+        yield return new WaitForSeconds(MINUTE / projectilesPerMinute);
         canFireTurret = true;
         yield return null;
     }

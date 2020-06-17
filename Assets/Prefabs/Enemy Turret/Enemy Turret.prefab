@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 5705724033504943392}
   - {fileID: 3304923247388619437}
+  - {fileID: 6121557995602863184}
   m_Father: {fileID: 5007937493238808553}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59,15 +60,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e9566c3c9d9c24f889bd50824d3084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8901510634843816408, guid: fef071919f7680347885ae2aac1b3d6c,
+  projectile: {fileID: 7145987248782227646, guid: a5245dc554cc0694c81443888d76043b,
     type: 3}
-  turretBarrel: {fileID: 4727787718203857635}
-  projectilesPerSecond: 1
+  turretBarrel: {fileID: 6121557995602863184}
+  projectilesPerMinute: 20
   turretScanRange: 50
   turretScanWidth: 5
   maxRotationScan: 90
   scanSpeed: 0.5
   targetLockOnStrength: 100
+--- !u!1 &1012255325624011876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6121557995602863184}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6121557995602863184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012255325624011876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6766900322913334137}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239709779210761948
 GameObject:
   m_ObjectHideFlags: 0

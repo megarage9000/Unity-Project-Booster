@@ -81,8 +81,10 @@ public class EnemyTurretControl : TurretControl
     // Used similar algorithm to booster control
     private void target()
     {
-        Vector3 targetPosition = GameObject.FindGameObjectWithTag(PLAYER_TAG).transform.position;
-        Vector2 directionToLook = new Vector2(targetPosition.x, targetPosition.y) - new Vector2(transform.position.x, transform.position.y);
+        GameObject player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
+        Vector3 targetPosition = player.transform.position;
+        float offset = player.transform.localScale.y / 2;
+        Vector2 directionToLook = new Vector2(targetPosition.x, targetPosition.y) - new Vector2(transform.position.x, transform.position.y - offset);
 
         float angleZ = Mathf.Atan2(directionToLook.y, directionToLook.x) * Mathf.Rad2Deg;
         
