@@ -9,8 +9,9 @@ public class BoosterTurretControl : TurretControl
   
     private Camera camera;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         camera = Camera.main; 
     }
 

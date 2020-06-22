@@ -26,10 +26,12 @@ public class EnemyTurretDefaultProjectile : Projectile
     {
         SetProjectileRange(enemyDefaultProjectileRange);
         SetProjectileSpeed(enemyDefaultProjectileSpeed);
-        Fire();
     }
 
- 
+    private void OnCollisionEnter(Collision collision)
+    {
+        OnDelete();
+    }
 
 
 }

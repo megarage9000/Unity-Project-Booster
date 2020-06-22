@@ -25,7 +25,6 @@ public class BoosterProjectile : Projectile
     {
         SetProjectileRange(boosterProjectileRange);
         SetProjectileSpeed(boosterProjectileSpeed);
-        Fire();
     }
 
     private void OnCollisionEnter(Collision collision)

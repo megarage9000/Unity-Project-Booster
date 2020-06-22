@@ -20,8 +20,9 @@ public class EnemyTurretControl : TurretControl
     private Quaternion leftRotationBound;
     private Quaternion rightRotationBound;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         turretScanArea = GetComponent<BoxCollider>();
 
         Vector3 initialAreaCenter = turretScanArea.center;
@@ -83,13 +84,10 @@ public class EnemyTurretControl : TurretControl
     {
         GameObject player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
         Vector3 targetPosition = player.transform.position;
-        float offset = player.transform.localScale.y / 2;
-        Vector2 directionToLook = new Vector2(targetPosition.x, targetPosition.y) - new Vector2(transform.position.x, transform.position.y - offset);
-
+        Vector2 directionToLook = new Vector2(targetPosition.x, targetPosition.y) - new Vector2(transform.position.x, transform.position.y);
         float angleZ = Mathf.Atan2(directionToLook.y, directionToLook.x) * Mathf.Rad2Deg;
-        
         Quaternion newRotation = Quaternion.Euler(new Vector3(0f, 0f, angleZ - OFFSET));
-        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, targetLockOnStrength * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, targetLockOnStrength * Time.smoothDeltaTime);
         FireTurret();
     }
 
