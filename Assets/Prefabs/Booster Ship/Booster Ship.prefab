@@ -1927,10 +1927,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e958cee68b3db4abf77939f5fdec8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretBarrel: {fileID: 6737771043960821733}
+  projectilesPerSecond: 5
   projectile: {fileID: 4148262981869006160, guid: 7a096a45c222fc04e8da027aa95978d6,
     type: 3}
-  turretBarrel: {fileID: 6737771043960821733}
-  projectilesPerSecond: 2
   mouseSensitivity: 5
 --- !u!65 &5178824576475733140
 BoxCollider:

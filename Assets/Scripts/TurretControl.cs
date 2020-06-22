@@ -6,8 +6,8 @@ public abstract class TurretControl : MonoBehaviour
 {
     const int MINUTE = 60;
 
-    [SerializeField] protected Transform turretBarrel;
-    [SerializeField] private int projectilesPerSecond;
+    [SerializeField] private Transform turretBarrel;
+    [SerializeField] private int projectilesPerSecond = 1;
 
     private bool canControlTurret = true;
     private bool canFireTurret = true;
@@ -23,11 +23,6 @@ public abstract class TurretControl : MonoBehaviour
     {
         if (canFireTurret)
         {
-            GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
-            AudioClip fireSound = projectileInstance.GetComponent<Projectile>().GetFireSound();
-            projectileInstance.GetComponent<Projectile>().Fire();
-            Physics.IgnoreCollision(projectileInstance.GetComponent<Collider>(), GetComponent<Collider>());
-            audio.PlayOneShot(fireSound);
             StartCoroutine(RateOfFireController());
         }
         
@@ -43,6 +38,14 @@ public abstract class TurretControl : MonoBehaviour
         }   
     }
 
+    public void instantiateProjectile()
+    {
+        GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
+        AudioClip fireSound = projectileInstance.GetComponent<Projectile>().GetFireSound();
+        projectileInstance.GetComponent<Projectile>().Fire();
+        Physics.IgnoreCollision(projectileInstance.GetComponent<Collider>(), GetComponent<Collider>());
+        audio.PlayOneShot(fireSound);
+    }
     public void DisableTurretControl()
     {
         canControlTurret = false;
@@ -53,7 +56,9 @@ public abstract class TurretControl : MonoBehaviour
     IEnumerator RateOfFireController()
     {
         canFireTurret = false;
-        yield return new WaitForSeconds(1 / projectilesPerSecond);
+        instantiateProjectile();
+        float delay = 1f / projectilesPerSecond;
+        yield return new WaitForSeconds(delay);
         canFireTurret = true;
 
     }
