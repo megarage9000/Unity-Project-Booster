@@ -9,6 +9,9 @@ public abstract class Projectile : MonoBehaviour
     private const float DEFAULT_RANGE = 100f;
     private const float DEFAULT_SPEED = 100f;
 
+    // readonly array: https://stackoverflow.com/questions/14063203/const-array-of-strings
+    private readonly string[] IGNORED_LAYERS = { "TurretScanRange", "Projectiles", "PlayerAndEnemies" };
+
     [SerializeField] AudioClip onFireSound;
 
     private Rigidbody bulletBody;
@@ -33,7 +36,6 @@ public abstract class Projectile : MonoBehaviour
         OnFire();
         bulletBody.velocity = transform.up * projectileSpeed;
         float calculatedDistance = CalculateProjectileDistance();
-        // Debug.Log("Speed = " + projectileSpeed + ", Range = " + calculatedDistance);
         StartCoroutine(DeleteProjectileInstance(calculatedDistance));
     }
 
@@ -59,7 +61,7 @@ public abstract class Projectile : MonoBehaviour
 
     private float CalculateProjectileDistance()
     {
-        int layerMask = LayerMask.GetMask("TurretScanRange");
+        int layerMask = LayerMask.GetMask(IGNORED_LAYERS);
         layerMask = ~layerMask;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, maxProjectileRange, layerMask))

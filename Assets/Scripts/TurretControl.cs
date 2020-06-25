@@ -40,8 +40,9 @@ public abstract class TurretControl : MonoBehaviour
     public void instantiateProjectile()
     {
         GameObject projectileInstance = Instantiate(projectile, turretBarrel.position, transform.rotation) as GameObject;
-        AudioClip fireSound = projectileInstance.GetComponent<Projectile>().GetFireSound();
-        projectileInstance.GetComponent<Projectile>().Fire();
+        Projectile projectileScript = projectileInstance.GetComponent<Projectile>();
+        AudioClip fireSound = projectileScript.GetFireSound();
+        projectileScript.GetComponent<Projectile>().Fire();
         Physics.IgnoreCollision(projectileInstance.GetComponent<Collider>(), GetComponent<Collider>());
         audio.PlayOneShot(fireSound);
     }

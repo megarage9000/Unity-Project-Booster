@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2338679281779160517}
   - component: {fileID: 9037147695012343689}
   - component: {fileID: 1928019915798679653}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B_Hull_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8997833128233539362}
   - component: {fileID: 8997763011854643816}
   - component: {fileID: 8621410277476944937}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6737771043960821733}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FiringPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 6297165747156909791}
   - component: {fileID: 1724918886936688607}
   - component: {fileID: 5016275975065835398}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 5084188114953902423}
   - component: {fileID: 4777647690171391162}
   - component: {fileID: 7587943439689034628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8914795842833493089}
   - component: {fileID: 8829139793775519531}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Turret Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120218592222620574}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 4045705173264131234}
   - component: {fileID: 811675864163602723}
   - component: {fileID: 8490781374303388096}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B_Turret_Casing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7980862945819836688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606693359832982446}
   - component: {fileID: 511487518861196494}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: L_Thruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 174978302936955166}
   - component: {fileID: 7041737431723801508}
   - component: {fileID: 4961761763418326085}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 7629904367304643877}
   - component: {fileID: 3911785977209514845}
   - component: {fileID: 1665317862830741054}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 6007685751824563017}
   - component: {fileID: 4600599339038955301}
   - component: {fileID: 7102956876806966605}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 17463083905430840}
   - component: {fileID: 7200913650834715758}
   - component: {fileID: 5213333634530964247}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 4809141828108862103}
   - component: {fileID: 86611759190512428}
   - component: {fileID: 3135471260435710981}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Thrusters
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 5907065393211382207}
   - component: {fileID: 1863838515}
   - component: {fileID: 631935459}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Booster Ship
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1300,7 +1300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3125137360167136374}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1335,7 @@ GameObject:
   - component: {fileID: 3433094245137414833}
   - component: {fileID: 5157532105565524176}
   - component: {fileID: 4909759874535988560}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B_Turret_Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 5360939049824363275}
   - component: {fileID: 5130606947013531063}
   - component: {fileID: 3128116541596001910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WindowB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1491,7 +1491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7436895255423317266}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 7975642582089484947}
   - component: {fileID: 8745691459583782957}
   - component: {fileID: 3239523577776535128}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WindowF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1604,7 @@ GameObject:
   - component: {fileID: 8101378762499629373}
   - component: {fileID: 6797728439680678167}
   - component: {fileID: 7045417993988745626}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Connector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1681,7 +1681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1117910643069488261}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B_Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 7883723133806460361}
   - component: {fileID: 775428646583111270}
   - component: {fileID: 5556840844180348753}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,7 +1795,7 @@ GameObject:
   - component: {fileID: 8089768582344667889}
   - component: {fileID: 5730650471598222554}
   - component: {fileID: 5178824576475733140}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1956,7 +1956,7 @@ GameObject:
   - component: {fileID: 3882134402639902668}
   - component: {fileID: 1782977203513437591}
   - component: {fileID: 6861780734625525701}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Energy_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2035,7 +2035,7 @@ GameObject:
   - component: {fileID: 887136793226543485}
   - component: {fileID: 7622915571929898858}
   - component: {fileID: 5828620436490772847}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2114,7 +2114,7 @@ GameObject:
   - component: {fileID: 3048517736014718952}
   - component: {fileID: 8968994825946075334}
   - component: {fileID: 2220293534046644449}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2191,7 +2191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4946872147913703115}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B_Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2224,7 +2224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9173618804652270927}
   - component: {fileID: 5859263937224124849}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2316,7 +2316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2600852361234520351}
   - component: {fileID: 7838641466238813346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_Thruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,7 +2366,7 @@ GameObject:
   - component: {fileID: 7081718469249323603}
   - component: {fileID: 1393359729330568968}
   - component: {fileID: 5152638862913107031}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Connector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2445,7 +2445,7 @@ GameObject:
   - component: {fileID: 815832331407058561}
   - component: {fileID: 6499500551962998825}
   - component: {fileID: 7576943784988228209}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B_Turret_Blaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2524,7 +2524,7 @@ GameObject:
   - component: {fileID: 4026557261992938046}
   - component: {fileID: 6561943462520512518}
   - component: {fileID: 4740022399063775614}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: T_Rocket_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2603,6 +2603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Success Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 1664836844622050, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2671,6 +2675,10 @@ PrefabInstance:
     - target: {fileID: 1113205305641416, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
       propertyPath: m_Name
       value: Rocket Jet Particles Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113205305641416, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4940884351362868, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2785,6 +2793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 1469142659871422, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
 --- !u!4 &8250886954111707348 stripped
@@ -2809,6 +2821,10 @@ PrefabInstance:
     - target: {fileID: 1113205305641416, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
       propertyPath: m_Name
       value: Rocket Jet Particles Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113205305641416, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4940884351362868, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
       propertyPath: m_LocalPosition.x

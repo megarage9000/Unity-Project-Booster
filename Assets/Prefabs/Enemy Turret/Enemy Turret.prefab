@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7341705467990921304}
   - component: {fileID: 1539630650469741444}
   - component: {fileID: 4451790938426363235}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6121557995602863184}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FiringPoint
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 8640539769910755847}
   - component: {fileID: 5887356059596770012}
   - component: {fileID: 1697316912676035971}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 6590632909798218972}
   - component: {fileID: 6851114835637538573}
   - component: {fileID: 252474364697966536}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Front Hinge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 1012064844864219494}
   - component: {fileID: 2142530415076320409}
   - component: {fileID: 4998391525767678600}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Barrel point
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 1246377722422064412}
   - component: {fileID: 368955701962808444}
   - component: {fileID: 6974686887612894293}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Barrel Base
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 7055246901335740460}
   - component: {fileID: 5090145504052422942}
   - component: {fileID: 3168071907304455807}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Back Hinge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 2694422920712192624}
   - component: {fileID: 6827786567024590032}
   - component: {fileID: 2364448937535379616}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 7565477609291744956}
   - component: {fileID: 7037160032660618906}
   - component: {fileID: 7060307275068546794}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Energy Panel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3304923247388619437}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Barrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -962,7 +962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5252267969495779233}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hinges
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -997,7 +997,7 @@ GameObject:
   - component: {fileID: 1417739677318413036}
   - component: {fileID: 3248661548509596921}
   - component: {fileID: 3399835186978547205}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Axel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
