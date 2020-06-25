@@ -24,7 +24,7 @@ public class EnemyTurretDefaultProjectile : Projectile
 
     public override void SetupProjectile()
     {
-        SetProjectileRange(enemyDefaultProjectileRange);
+        SetMaxProjectileRange(enemyDefaultProjectileRange);
         SetProjectileSpeed(enemyDefaultProjectileSpeed);
     }
 

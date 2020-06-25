@@ -41,8 +41,4 @@ public class BoosterTurretControl : TurretControl
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * mouseSensitivity); 
     }
 
-    public void DisableTurretControl()
-    {
-        base.DisableTurretControl();
-    }
 }

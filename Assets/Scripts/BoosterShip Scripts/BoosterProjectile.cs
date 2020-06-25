@@ -23,12 +23,14 @@ public class BoosterProjectile : Projectile
 
     public override void SetupProjectile()
     {
-        SetProjectileRange(boosterProjectileRange);
+        SetMaxProjectileRange(boosterProjectileRange);
         SetProjectileSpeed(boosterProjectileSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        string tag = collision.gameObject.tag;
+        Debug.Log("Got " + tag);
         OnDelete();
     }
 

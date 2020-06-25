@@ -29,7 +29,7 @@ public class EnemyTurretControl : TurretControl
         Vector3 initialAreaSize = turretScanArea.size;
 
         turretScanArea.size = new Vector3(turretScanWidth, turretScanRange, initialAreaSize.z);
-        turretScanArea.center = new Vector3(initialAreaCenter.x, initialAreaCenter.y + turretScanRange / 2, initialAreaCenter.z);
+        turretScanArea.center = new Vector3(initialAreaCenter.x, initialAreaCenter.y + turretScanRange / 2f, initialAreaCenter.z);
 
         leftRotationBound = Quaternion.Euler(0, 0, transform.rotation.z + -maxRotationScan);
         rightRotationBound = Quaternion.Euler(0, 0, transform.rotation.z + maxRotationScan);

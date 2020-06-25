@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class TurretControl : MonoBehaviour
 {
-    const int MINUTE = 60;
 
     [SerializeField] private Transform turretBarrel;
     [SerializeField] private int projectilesPerSecond = 1;

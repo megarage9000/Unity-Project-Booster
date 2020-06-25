@@ -13,20 +13,14 @@ public abstract class Projectile : MonoBehaviour
 
     private Rigidbody bulletBody;
     private float projectileSpeed;
-    private float projectileRange;
+    private float maxProjectileRange;
     private Vector3 initialPosition;
 
     public void Awake()
     {
         bulletBody = GetComponent<Rigidbody>();
-        projectileSpeed = DEFAULT_SPEED;
-        projectileRange = DEFAULT_RANGE;
-        initialPosition = transform.position;
-    }
-
-    private void Start()
-    {
         SetupProjectile();
+        initialPosition = transform.position;
     }
 
     public AudioClip GetFireSound()
@@ -38,10 +32,12 @@ public abstract class Projectile : MonoBehaviour
     {
         OnFire();
         bulletBody.velocity = transform.up * projectileSpeed;
-        StartCoroutine(DeleteProjectileInstance(projectileRange));
+        float calculatedDistance = CalculateProjectileDistance();
+        // Debug.Log("Speed = " + projectileSpeed + ", Range = " + calculatedDistance);
+        StartCoroutine(DeleteProjectileInstance(calculatedDistance));
     }
 
-    public void SetProjectileRange(float range){ projectileRange = range;}
+    public void SetMaxProjectileRange(float range){ maxProjectileRange = range;}
 
     public void SetProjectileSpeed(float speed){ projectileSpeed = speed;}
 
@@ -59,6 +55,21 @@ public abstract class Projectile : MonoBehaviour
         }
 
         OnDelete();
+    }
+
+    private float CalculateProjectileDistance()
+    {
+        int layerMask = LayerMask.GetMask("TurretScanRange");
+        layerMask = ~layerMask;
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, maxProjectileRange, layerMask))
+        {
+            return hit.distance;
+        }
+        else
+        {
+            return maxProjectileRange;
+        }
     }
 
 }
