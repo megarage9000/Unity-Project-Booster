@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBarrel: {fileID: 6121557995602863184}
   projectilesPerSecond: 5
+  spread: 20
   projectile: {fileID: 7145987248782227646, guid: a5245dc554cc0694c81443888d76043b,
     type: 3}
   turretScanRange: 50
