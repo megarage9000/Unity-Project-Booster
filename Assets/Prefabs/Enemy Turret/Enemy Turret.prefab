@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7341705467990921304}
   - component: {fileID: 1539630650469741444}
   - component: {fileID: 4451790938426363235}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -33,6 +33,7 @@ Transform:
   - {fileID: 5705724033504943392}
   - {fileID: 3304923247388619437}
   - {fileID: 6121557995602863184}
+  - {fileID: 3829202010314227622}
   m_Father: {fileID: 5007937493238808553}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44,11 +45,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657403763082561881}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 2.25, z: 0}
+  m_Size: {x: 1, y: 2, z: 0.75}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &1539630650469741444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,12 +63,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretBarrel: {fileID: 6121557995602863184}
-  projectilesPerSecond: 5
+  projectilesPerSecond: 2
   spread: 20
   projectile: {fileID: 7145987248782227646, guid: a5245dc554cc0694c81443888d76043b,
     type: 3}
-  turretScanRange: 50
-  turretScanWidth: 5
   maxRotationScan: 90
   scanSpeed: 0.5
   targetLockOnStrength: 100
@@ -464,7 +463,6 @@ GameObject:
   - component: {fileID: 4727787718203857635}
   - component: {fileID: 1012064844864219494}
   - component: {fileID: 2142530415076320409}
-  - component: {fileID: 4998391525767678600}
   m_Layer: 11
   m_Name: Barrel point
   m_TagString: Enemy
@@ -533,20 +531,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &4998391525767678600
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2308729918624174881}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.7
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2513901873283369680
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +542,6 @@ GameObject:
   - component: {fileID: 8913964358794990746}
   - component: {fileID: 1246377722422064412}
   - component: {fileID: 368955701962808444}
-  - component: {fileID: 6974686887612894293}
   m_Layer: 11
   m_Name: Barrel Base
   m_TagString: Enemy
@@ -627,19 +610,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6974686887612894293
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513901873283369680}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3006346913455058763
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +715,6 @@ GameObject:
   - component: {fileID: 5705724033504943392}
   - component: {fileID: 2694422920712192624}
   - component: {fileID: 6827786567024590032}
-  - component: {fileID: 2364448937535379616}
   m_Layer: 11
   m_Name: Body
   m_TagString: Enemy
@@ -815,20 +784,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2364448937535379616
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5501792404673581977}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.7
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5973410026274972890
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +795,6 @@ GameObject:
   - component: {fileID: 5007664870844424300}
   - component: {fileID: 7565477609291744956}
   - component: {fileID: 7037160032660618906}
-  - component: {fileID: 7060307275068546794}
   m_Layer: 11
   m_Name: Energy Panel
   m_TagString: Enemy
@@ -909,19 +863,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7060307275068546794
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5973410026274972890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6058335446788892691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,3 +1021,90 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &8020836204721259610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3829202010314227622}
+  - component: {fileID: 3455625676467588455}
+  - component: {fileID: 7075679229206803118}
+  m_Layer: 9
+  m_Name: ScanRange
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3829202010314227622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020836204721259610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6766900322913334137}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3455625676467588455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020836204721259610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 2.25, z: 0}
+--- !u!114 &7075679229206803118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020836204721259610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3add83a6a8a417340a496d4cfd1670af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDetect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1539630650469741444}
+        m_MethodName: SetTargetFound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLeave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1539630650469741444}
+        m_MethodName: SetTargetLost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  turretScanRange: 50
+  turretScanWidth: 5

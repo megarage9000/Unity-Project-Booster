@@ -13,8 +13,6 @@ public class Rocket : MonoBehaviour
     private RocketState state;
 
     public UnityEvent disableRocketControl;
-    
-
 
     [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] AudioClip deathNoise;

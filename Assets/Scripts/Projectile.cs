@@ -55,7 +55,6 @@ public abstract class Projectile : MonoBehaviour
         {
             yield return null;
         }
-
         OnDelete();
     }
 

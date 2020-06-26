@@ -9,6 +9,7 @@ TagManager:
   - background
   - Player Projectile
   - Enemy
+  - Enemy Projectile
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - 
   - MouseRayCast
   - TurretScanRange
-  - 
-  - 
+  - Projectiles
+  - PlayerAndEnemies
   - 
   - 
   - 
