@@ -35,7 +35,6 @@ public class ThrusterControl : MonoBehaviour
         else
         {
             stopParticles();
-            audio.Stop();
         }
     }
 
