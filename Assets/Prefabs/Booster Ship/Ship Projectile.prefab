@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFireSound: {fileID: 8300000, guid: 6bb0bd388c0dae243a91a63d4d035a9c, type: 3}
-  boosterProjectileSpeed: 100
-  boosterProjectileRange: 50
+  maxProjectileRange: 75
+  projectileSpeed: 100
 --- !u!54 &5452801186824324320
 Rigidbody:
   m_ObjectHideFlags: 0

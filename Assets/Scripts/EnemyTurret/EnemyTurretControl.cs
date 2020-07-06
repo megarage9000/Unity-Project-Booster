@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyTurretControl : TurretControl
 {
     private const string PLAYER_TAG = "Player";
-
     private const float TAU = Mathf.PI * 2;
     private const float OFFSET = 90f;
 

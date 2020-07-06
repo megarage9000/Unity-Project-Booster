@@ -13,16 +13,15 @@ public abstract class Projectile : MonoBehaviour
     private readonly string[] IGNORED_LAYERS = { "TurretScanRange", "Projectiles", "PlayerAndEnemies" };
 
     [SerializeField] AudioClip onFireSound;
+    [SerializeField] float maxProjectileRange = DEFAULT_RANGE;
+    [SerializeField] float projectileSpeed = DEFAULT_SPEED;
 
     private Rigidbody bulletBody;
-    private float projectileSpeed;
-    private float maxProjectileRange;
     private Vector3 initialPosition;
 
     public void Awake()
     {
         bulletBody = GetComponent<Rigidbody>();
-        SetupProjectile();
         initialPosition = transform.position;
     }
 
@@ -39,15 +38,9 @@ public abstract class Projectile : MonoBehaviour
         StartCoroutine(DeleteProjectileInstance(calculatedDistance));
     }
 
-    public void SetMaxProjectileRange(float range){ maxProjectileRange = range;}
-
-    public void SetProjectileSpeed(float speed){ projectileSpeed = speed;}
-
     public abstract void OnFire();
 
     public abstract void OnDelete();
-
-    public abstract void SetupProjectile();
 
     IEnumerator DeleteProjectileInstance(float distance)
     {

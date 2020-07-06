@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class BoosterProjectile : Projectile
 {
-
-    [SerializeField] float boosterProjectileSpeed = 100f;
-    [SerializeField] float boosterProjectileRange = 2f;
    
     public override void OnDelete()
     {
@@ -21,11 +18,6 @@ public class BoosterProjectile : Projectile
         Debug.Log("Booster Projectile Fired!");
     }
 
-    public override void SetupProjectile()
-    {
-        SetMaxProjectileRange(boosterProjectileRange);
-        SetProjectileSpeed(boosterProjectileSpeed);
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

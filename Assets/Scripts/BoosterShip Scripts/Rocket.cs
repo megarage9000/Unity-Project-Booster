@@ -42,10 +42,7 @@ public class Rocket : MonoBehaviour
                     break;
 
                 default:
-                    ExecuteDeath();
-                    disableRocketControl.Invoke();
                     break;
-
             }
         }
     }
@@ -59,15 +56,17 @@ public class Rocket : MonoBehaviour
         audio.PlayOneShot(newLevelChime);
         newLevelChimeParticles.Play();
         Invoke("loadNextLevel", levelLoadDelay);
+        disableRocketControl.Invoke();
     }
 
-    private void ExecuteDeath()
+    public void ExecuteDeath()
     {
         state = RocketState.Dead;
         audio.Stop();
         audio.PlayOneShot(deathNoise);
         deathNoiseParticles.Play();
         Invoke("loadFirstLevel", levelLoadDelay);
+        disableRocketControl.Invoke();
     }
 
     private void loadNextLevel()

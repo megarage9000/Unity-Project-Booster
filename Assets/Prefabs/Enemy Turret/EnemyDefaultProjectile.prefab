@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFireSound: {fileID: 8300000, guid: e95ca77148852774a89b090422e17582, type: 3}
-  enemyDefaultProjectileSpeed: 75
-  enemyDefaultProjectileRange: 75
+  maxProjectileRange: 50
+  projectileSpeed: 200
 --- !u!82 &1939723498844525494
 AudioSource:
   m_ObjectHideFlags: 0

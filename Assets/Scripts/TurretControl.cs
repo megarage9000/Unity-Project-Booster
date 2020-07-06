@@ -57,8 +57,7 @@ public abstract class TurretControl : MonoBehaviour
         Physics.IgnoreCollision(
             projectileInstance.GetComponent<Collider>(),
             GetComponent<Collider>());
-        projectileScript.GetComponent<Projectile>().Fire();
-        
+        projectileScript.Fire();
         audio.PlayOneShot(fireSound);
     }
     public void DisableTurretControl()

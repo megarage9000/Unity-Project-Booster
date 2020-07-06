@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTurretDefaultProjectile : Projectile
+public class EnemyTurretDefaultProjectile : BaseEnemyProjectile
 {
-    [SerializeField] float enemyDefaultProjectileSpeed;
-    [SerializeField] float enemyDefaultProjectileRange;
-    // Start is called before the first frame update
-    void Start()
+
+    public override void AffectBoosterShip(GameObject boosterShip)
     {
-        SetupProjectile();
+        Rocket boosterScript = boosterShip.GetComponent<Rocket>();
+        boosterScript.ExecuteDeath();
     }
+
     public override void OnDelete()
     {
         Debug.Log("Enemy Projectiled Deleted!");
@@ -21,17 +21,4 @@ public class EnemyTurretDefaultProjectile : Projectile
     {
         Debug.Log("Enemy Projectile Fired!");
     }
-
-    public override void SetupProjectile()
-    {
-        SetMaxProjectileRange(enemyDefaultProjectileRange);
-        SetProjectileSpeed(enemyDefaultProjectileSpeed);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        OnDelete();
-    }
-
-
 }
