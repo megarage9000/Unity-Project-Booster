@@ -13,12 +13,16 @@ public class Rocket : MonoBehaviour
     private RocketState state;
 
     public UnityEvent disableRocketControl;
+    public UnityEvent paralyzeTurret;
+    public UnityEvent paralyzeThrusters;
 
     [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] AudioClip deathNoise;
     [SerializeField] AudioClip newLevelChime;
     [SerializeField] ParticleSystem deathNoiseParticles;
     [SerializeField] ParticleSystem newLevelChimeParticles;
+
+    
 
     void Start()
     {
@@ -68,6 +72,13 @@ public class Rocket : MonoBehaviour
         Invoke("loadFirstLevel", levelLoadDelay);
         disableRocketControl.Invoke();
     }
+
+    public void ExecuteParalysis()
+    {
+        paralyzeThrusters.Invoke();
+        paralyzeTurret.Invoke();
+    }
+
 
     private void loadNextLevel()
     {

@@ -1249,7 +1249,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 86611759190512428}
-        m_MethodName: DisableThrusterControl
+        m_MethodName: TerminateThrusterControl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1260,13 +1260,41 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5730650471598222554}
-        m_MethodName: DisableTurretControl
+        m_MethodName: TerminateBoosterTurretControl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  paralyzeTurret:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5730650471598222554}
+        m_MethodName: InitializeParalyzeEffect
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  paralyzeThrusters:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 86611759190512428}
+        m_MethodName: InitializeParalyzeEffect
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1930,7 +1958,7 @@ MonoBehaviour:
   turretBarrel: {fileID: 6737771043960821733}
   projectilesPerSecond: 5
   spread: 10
-  projectile: {fileID: 4148262981869006160, guid: 7a096a45c222fc04e8da027aa95978d6,
+  projectile: {fileID: 5945657864885725079, guid: 627c97a720bf3c84aa5f9c1c48405072,
     type: 3}
   mouseSensitivity: 5
 --- !u!65 &5178824576475733140

@@ -41,4 +41,20 @@ public class BoosterTurretControl : TurretControl
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * mouseSensitivity); 
     }
 
+    public void InitializeParalyzeEffect(float duration)
+    {
+        StartCoroutine(ParalyzeTurret(duration));
+    }
+
+    public void TerminateBoosterTurretControl()
+    {
+        StopAllCoroutines();
+        DisableTurretControl();
+    }
+    IEnumerator ParalyzeTurret(float duration)
+    {
+        DisableTurretControl();
+        yield return new WaitForSeconds(duration);
+        EnableTurretControl();
+    }
 }

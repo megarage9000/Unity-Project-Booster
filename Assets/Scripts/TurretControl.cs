@@ -67,6 +67,11 @@ public abstract class TurretControl : MonoBehaviour
         audio.Stop();
     }
 
+    public void EnableTurretControl()
+    {
+        canControlTurret = true;
+    }
+
     IEnumerator RateOfFireController()
     {
         canFireTurret = false;

@@ -19,7 +19,7 @@ public abstract class Projectile : MonoBehaviour
     private Rigidbody bulletBody;
     private Vector3 initialPosition;
 
-    public void Awake()
+    public virtual void Awake()
     {
         bulletBody = GetComponent<Rigidbody>();
         initialPosition = transform.position;

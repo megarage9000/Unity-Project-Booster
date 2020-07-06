@@ -23,4 +23,15 @@ public abstract class BaseEnemyProjectile : Projectile
         }
         OnDelete();
     }
+
+    public override void OnDelete()
+    {
+        Debug.Log("Enemy Projectiled Deleted!");
+        Destroy(gameObject);
+    }
+
+    public override void OnFire()
+    {
+        Debug.Log("Enemy Projectile Fired!");
+    }
 }

@@ -65,7 +65,7 @@ MonoBehaviour:
   turretBarrel: {fileID: 6121557995602863184}
   projectilesPerSecond: 2
   spread: 20
-  projectile: {fileID: 7145987248782227646, guid: a5245dc554cc0694c81443888d76043b,
+  projectile: {fileID: 2553159864828743859, guid: 9bfca442546c9734a84dae025961c8b5,
     type: 3}
   maxRotationScan: 90
   scanSpeed: 0.5

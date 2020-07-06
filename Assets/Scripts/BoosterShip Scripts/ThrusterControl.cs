@@ -102,11 +102,34 @@ public class ThrusterControl : MonoBehaviour
         rightJetParticles.Stop();
     }
 
+    public void TerminateThrusterControl()
+    {
+        StopAllCoroutines();
+        DisableThrusterControl();
+    }
     public void DisableThrusterControl()
     {
         canControlThrust = false;
         audio.Stop();
     }
+
+    public void EnableThrusterControl()
+    {
+        canControlThrust = true;
+    }
+
+    public void InitializeParalyzeEffect(float duration)
+    {
+        StartCoroutine(ParalyzeThrust(duration));
+    }
+
+    IEnumerator ParalyzeThrust(float duration)
+    {
+        DisableThrusterControl();
+        yield return new WaitForSeconds(duration);
+        EnableThrusterControl();
+    }
+
 
 
 
