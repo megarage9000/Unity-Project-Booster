@@ -13,20 +13,27 @@ public class Rocket : MonoBehaviour
     private RocketState state;
 
     public UnityEvent disableRocketControl;
-    public UnityEvent paralyzeTurret;
-    public UnityEvent paralyzeThrusters;
+    public GameObject thrusters;
+    public GameObject turret;
+
+    private ThrusterControl thrusterControl;
+    private BoosterTurretControl turretControl;
+    private float paralysisDuration = 1f;
 
     [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] AudioClip deathNoise;
     [SerializeField] AudioClip newLevelChime;
     [SerializeField] ParticleSystem deathNoiseParticles;
     [SerializeField] ParticleSystem newLevelChimeParticles;
+    [SerializeField] ParticleSystem paralysisEffects;
 
     
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        thrusterControl = thrusters.GetComponent<ThrusterControl>();
+        turretControl = turret.GetComponent<BoosterTurretControl>();
         state = RocketState.Alive;
     }
 
@@ -75,8 +82,8 @@ public class Rocket : MonoBehaviour
 
     public void ExecuteParalysis()
     {
-        paralyzeThrusters.Invoke();
-        paralyzeTurret.Invoke();
+        thrusterControl.InitializeParalyzeEffect(paralysisDuration);
+        turretControl.InitializeParalyzeEffect(paralysisDuration);
     }
 
 

@@ -1270,39 +1270,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  paralyzeTurret:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5730650471598222554}
-        m_MethodName: InitializeParalyzeEffect
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  paralyzeThrusters:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 86611759190512428}
-        m_MethodName: InitializeParalyzeEffect
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  thrusters: {fileID: 2814957312414865255}
+  turret: {fileID: 4516847948532386267}
   levelLoadDelay: 1
   deathNoise: {fileID: 8300000, guid: ae1aa899d1b078a48a6d0b8e9b80f3dd, type: 3}
   newLevelChime: {fileID: 8300000, guid: e7e739db258c4cb4da23714c5a3487d4, type: 3}
   deathNoiseParticles: {fileID: 8092652441148434702}
   newLevelChimeParticles: {fileID: 5689284365753479323}
+  paralysisEffects: {fileID: 0}
 --- !u!54 &631935459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1957,7 +1932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBarrel: {fileID: 6737771043960821733}
   projectilesPerSecond: 5
-  spread: 10
+  spread: 0
   projectile: {fileID: 5945657864885725079, guid: 627c97a720bf3c84aa5f9c1c48405072,
     type: 3}
   mouseSensitivity: 5

@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class BoosterProjectile : Projectile
 {
+    [SerializeField] int projectileDamage = 25;
+
     public ParticleSystem boosterProjectileParticles;
     public GameObject projectile;
+ 
     private float durationOfParticleEffect;
     private Rigidbody rigidbody;
 
@@ -21,7 +24,7 @@ public class BoosterProjectile : Projectile
     public override void OnDelete()
     {
         Debug.Log("Booster Projectile Deleted!");
-        rigidbody.velocity = new Vector3(0, 0, 0);
+        
         boosterProjectileParticles.Play();
         Destroy(gameObject, durationOfParticleEffect);
     }
@@ -29,15 +32,19 @@ public class BoosterProjectile : Projectile
     public override void OnFire()
     {
         Debug.Log("Booster Projectile Fired!");
-        
     }
 
+    public int GetDamage()
+    {
+        return projectileDamage;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         string tag = collision.gameObject.tag;
         Debug.Log("Got " + tag);
         projectile.SetActive(false);
+        rigidbody.constraints = RigidbodyConstraints.FreezePosition;
         OnDelete();
     }
 

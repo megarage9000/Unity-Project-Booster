@@ -110,7 +110,7 @@ MonoBehaviour:
   onFireSound: {fileID: 8300000, guid: e95ca77148852774a89b090422e17582, type: 3}
   maxProjectileRange: 100
   projectileSpeed: 100
-  paralyzeDuration: 1
+  paralysisEffect: {fileID: 0}
 --- !u!54 &2053698932263372042
 Rigidbody:
   m_ObjectHideFlags: 0

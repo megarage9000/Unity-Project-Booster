@@ -7,7 +7,13 @@ public abstract class BaseEnemyProjectile : Projectile
 {
     public static readonly string PLAYER_TAG = "Player";
     public abstract void AffectBoosterShip(GameObject boosterShip);
+    private Rigidbody rigidbody;
 
+    public override void Awake()
+    {
+        base.Awake();
+        rigidbody = GetComponent<Rigidbody>();
+    }
     public string GetPlayerString()
     {
         return PLAYER_TAG;
@@ -15,6 +21,7 @@ public abstract class BaseEnemyProjectile : Projectile
 
     private void OnCollisionEnter(Collision collision)
     {
+        rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         var gameObject = collision.gameObject;
         var tag = gameObject.tag;
         if (tag.Equals(GetPlayerString()))
@@ -22,16 +29,10 @@ public abstract class BaseEnemyProjectile : Projectile
             AffectBoosterShip(gameObject);
         }
         OnDelete();
+        
+        
+        
     }
 
-    public override void OnDelete()
-    {
-        Debug.Log("Enemy Projectiled Deleted!");
-        Destroy(gameObject);
-    }
 
-    public override void OnFire()
-    {
-        Debug.Log("Enemy Projectile Fired!");
-    }
 }
