@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BoosterTurretControl : TurretControl
 {
+    [SerializeField] public ParticleSystem paralysisEffect;
+
     private const float ANGLE_OFFSET = 90f;
     [SerializeField] float mouseSensitivity = 5f;
   
@@ -44,6 +46,7 @@ public class BoosterTurretControl : TurretControl
     public void InitializeParalyzeEffect(float duration)
     {
         StartCoroutine(ParalyzeTurret(duration));
+        paralysisEffect.Play();
     }
 
     public void TerminateBoosterTurretControl()
@@ -56,5 +59,6 @@ public class BoosterTurretControl : TurretControl
         DisableTurretControl();
         yield return new WaitForSeconds(duration);
         EnableTurretControl();
+        paralysisEffect.Stop();
     }
 }

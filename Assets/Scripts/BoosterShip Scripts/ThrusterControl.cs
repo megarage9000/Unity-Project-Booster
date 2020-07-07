@@ -8,6 +8,8 @@ public class ThrusterControl : MonoBehaviour
     private const int LEFT_DIRECTION = 1;
     private const int RIGHT_DIRECTION = -1;
 
+    [SerializeField] public ParticleSystem paralysisEffect;
+
     [SerializeField] float rcsRotationSpeed = 100f;
     [SerializeField] float rcsThrusterSpeed = 100f;
     [SerializeField] float rcsGravityModifier = 5f;
@@ -121,6 +123,7 @@ public class ThrusterControl : MonoBehaviour
     public void InitializeParalyzeEffect(float duration)
     {
         StartCoroutine(ParalyzeThrust(duration));
+        paralysisEffect.Play();
     }
 
     IEnumerator ParalyzeThrust(float duration)
@@ -128,6 +131,7 @@ public class ThrusterControl : MonoBehaviour
         DisableThrusterControl();
         yield return new WaitForSeconds(duration);
         EnableThrusterControl();
+        paralysisEffect.Stop();
     }
 
 

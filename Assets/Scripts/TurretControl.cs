@@ -39,6 +39,7 @@ public abstract class TurretControl : MonoBehaviour
         }   
     }
 
+    // Only applies in z direction
     private Quaternion CalculateProjectileSpread()
     {
         float randomZ = UnityEngine.Random.Range(-spread/2f, spread/2f);
