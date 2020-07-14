@@ -20,8 +20,8 @@ public class EnemyTurretControl : TurretControl
     public override void Awake()
     {
         base.Awake();
-        leftRotationBound = Quaternion.Euler(0, 0, transform.rotation.z + -maxRotationScan);
-        rightRotationBound = Quaternion.Euler(0, 0, transform.rotation.z + maxRotationScan);
+        leftRotationBound = Quaternion.Euler(0, 0, transform.localRotation.z + maxRotationScan);
+        rightRotationBound = Quaternion.Euler(0, 0, transform.localRotation.z + -maxRotationScan);
         scanSpeed = 1 / scanSpeed;
         isTargetFound = false;
     }
@@ -54,7 +54,7 @@ public class EnemyTurretControl : TurretControl
         float cycles = Time.time / scanSpeed;
         float sin = Mathf.Sin(cycles * TAU);
         float rotationFactor = sin / 2f + 0.5f;
-        transform.rotation = Quaternion.Slerp(leftRotationBound, rightRotationBound, rotationFactor);
+        transform.localRotation = Quaternion.Slerp(leftRotationBound, rightRotationBound, rotationFactor);
     }
 
     // Used similar algorithm to booster control

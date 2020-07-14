@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8794926123761482848}
   - component: {fileID: 4506251150824764821}
   - component: {fileID: 2053698932263372042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyParalyzer
-  m_TagString: Untagged
+  m_TagString: Enemy Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,6 @@ MonoBehaviour:
   onFireSound: {fileID: 8300000, guid: e95ca77148852774a89b090422e17582, type: 3}
   maxProjectileRange: 100
   projectileSpeed: 100
-  paralysisEffect: {fileID: 0}
 --- !u!54 &2053698932263372042
 Rigidbody:
   m_ObjectHideFlags: 0

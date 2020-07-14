@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class EnemyTurretDetection : MonoBehaviour
 {
     private const string PLAYER_TAG = "Player";
+    private const float MAX_DISTANCE = Mathf.Infinity;
 
     public UnityEvent onDetect;
     public UnityEvent onLeave;
@@ -14,9 +15,12 @@ public class EnemyTurretDetection : MonoBehaviour
     [SerializeField] float turretScanWidth = 5f;
 
     private BoxCollider turretScanArea;
+    private HashSet<GameObject> detectedObjects;
+    private string nearestObjectTag = "";
     // Start is called before the first frame update
     private void Awake()
     {
+        detectedObjects = new HashSet<GameObject>();
         turretScanArea = GetComponent<BoxCollider>();
 
         Vector3 initialAreaCenter = turretScanArea.center;
@@ -24,23 +28,61 @@ public class EnemyTurretDetection : MonoBehaviour
 
         turretScanArea.size = new Vector3(turretScanWidth, turretScanRange, initialAreaSize.z);
         turretScanArea.center = new Vector3(initialAreaCenter.x, initialAreaCenter.y + turretScanRange / 2f, initialAreaCenter.z);
+        
     }
+
+    
 
     public void OnTriggerEnter(Collider other)
     {
-        string objectTag = other.gameObject.tag;
-        if (objectTag.Equals(PLAYER_TAG))
+        
+        detectedObjects.Add(other.gameObject);
+        if (isPlayerClosest())
         {
             onDetect.Invoke();
+        }
+        else
+        {
+            onLeave.Invoke();
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        string objectTag = other.gameObject.tag;
-        if (objectTag.Equals(PLAYER_TAG))
+        Debug.Log("Removing object with tag " + other.gameObject.tag + " from detected objects list");
+        detectedObjects.Remove(other.gameObject);
+        if (isPlayerClosest())
         {
+            onDetect.Invoke();
+        }
+        else {
             onLeave.Invoke();
         }
+       
     }
+  
+  
+
+    // Finding closest enemy
+    // https://answers.unity.com/questions/1236558/finding-nearest-game-object.html
+    private bool isPlayerClosest()
+    {
+        float minDistance = MAX_DISTANCE;
+        string closestObjectTag = "";
+
+        foreach (GameObject obj in detectedObjects)
+        {
+            Vector3 distance = transform.position - obj.transform.position;
+            if(minDistance > distance.magnitude)
+            {
+                minDistance = distance.magnitude;
+                closestObjectTag = obj.tag;
+            }
+        }
+
+        return (PLAYER_TAG.Equals(closestObjectTag));
+    }
+    
+
+    
 }

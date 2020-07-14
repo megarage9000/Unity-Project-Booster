@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class BoosterProjectile : Projectile
 {
+
+    const string PLAYER_TAG = "Player";
+
     [SerializeField] int projectileDamage = 25;
 
-    public ParticleSystem boosterProjectileParticles;
+    public GameObject boosterProjectileParticles;
     public GameObject projectile;
  
     private float durationOfParticleEffect;
@@ -17,15 +20,18 @@ public class BoosterProjectile : Projectile
     public override void Awake()
     {
         base.Awake();
-        durationOfParticleEffect = boosterProjectileParticles.main.duration;
         rigidbody = GetComponent<Rigidbody>();
 
     }
     public override void OnDelete()
     {
         Debug.Log("Booster Projectile Deleted!");
-        
-        boosterProjectileParticles.Play();
+
+        GameObject particles = Instantiate(boosterProjectileParticles, transform.position, Quaternion.identity) as GameObject;
+        ParticleSystem particleSys = particles.GetComponent<ParticleSystem>();
+        durationOfParticleEffect = particleSys.main.duration;
+        particleSys.Play();
+        Destroy(particles, durationOfParticleEffect);
         Destroy(gameObject, durationOfParticleEffect);
     }
 
@@ -43,9 +49,12 @@ public class BoosterProjectile : Projectile
     {
         string tag = collision.gameObject.tag;
         Debug.Log("Got " + tag);
-        projectile.SetActive(false);
-        rigidbody.constraints = RigidbodyConstraints.FreezePosition;
-        OnDelete();
+        if (!tag.Equals(PLAYER_TAG))
+        {
+            projectile.SetActive(false);
+            rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+            OnDelete();
+        }
     }
 
 }
