@@ -19,19 +19,7 @@ public class EnemyTurretScript : MonoBehaviour
         StartCoroutine(Activation());
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        string tag = collision.gameObject.tag;
-        if(tag == PLAYER_PROJECTILE_TAG)
-        {
-            Debug.Log("Hit by player!");
-            BoosterProjectile boosterProjectile = collision.gameObject.GetComponent<BoosterProjectile>();
-            damageTurret(boosterProjectile.GetDamage());
-        }
-    }
-
-    private void damageTurret(int damage)
+    public void DamageTurret(int damage)
     {
         if(enemyHealth > 0)
         {
@@ -39,7 +27,6 @@ public class EnemyTurretScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Enemy Turret dead");
             Destroy(gameObject);
         }
     }

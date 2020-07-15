@@ -19,7 +19,6 @@ public class EnemyParalyzerProjectile : BaseEnemyProjectile
 
     public override void OnDelete()
     {
-        Debug.Log("Enemy Projectiled Deleted!");
         Destroy(gameObject);
     }
 

@@ -40,7 +40,10 @@ public abstract class Projectile : MonoBehaviour
 
     public abstract void OnFire();
 
-    public abstract void OnDelete();
+    public virtual void OnDelete()
+    {
+        bulletBody.constraints = RigidbodyConstraints.FreezePosition;
+    }
 
     IEnumerator DeleteProjectileInstance(float distance)
     {

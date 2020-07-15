@@ -17,7 +17,7 @@ public class EnemyTurretDetection : MonoBehaviour
     private BoxCollider turretScanArea;
     private HashSet<GameObject> detectedObjects;
     private string nearestObjectTag = "";
-    // Start is called before the first frame update
+
     private void Awake()
     {
         detectedObjects = new HashSet<GameObject>();
@@ -49,7 +49,6 @@ public class EnemyTurretDetection : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        Debug.Log("Removing object with tag " + other.gameObject.tag + " from detected objects list");
         detectedObjects.Remove(other.gameObject);
         if (isPlayerClosest())
         {

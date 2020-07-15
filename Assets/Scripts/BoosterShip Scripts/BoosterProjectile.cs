@@ -7,7 +7,7 @@ using UnityEngine;
 public class BoosterProjectile : Projectile
 {
 
-    const string PLAYER_TAG = "Player";
+    const string ENEMY_TAG = "Enemy";
 
     [SerializeField] int projectileDamage = 25;
 
@@ -25,8 +25,6 @@ public class BoosterProjectile : Projectile
     }
     public override void OnDelete()
     {
-        Debug.Log("Booster Projectile Deleted!");
-
         GameObject particles = Instantiate(boosterProjectileParticles, transform.position, Quaternion.identity) as GameObject;
         ParticleSystem particleSys = particles.GetComponent<ParticleSystem>();
         durationOfParticleEffect = particleSys.main.duration;
@@ -47,14 +45,14 @@ public class BoosterProjectile : Projectile
 
     private void OnCollisionEnter(Collision collision)
     {
+        GameObject detectedObj = collision.gameObject;
         string tag = collision.gameObject.tag;
-        Debug.Log("Got " + tag);
-        if (!tag.Equals(PLAYER_TAG))
+        if (tag.Equals(ENEMY_TAG))
         {
-            projectile.SetActive(false);
-            rigidbody.constraints = RigidbodyConstraints.FreezePosition;
-            OnDelete();
+            detectedObj.GetComponent<EnemyTurretScript>().DamageTurret(GetDamage());   
         }
+        projectile.SetActive(false);
+        OnDelete();
     }
 
 }
