@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7341705467990921304}
   - component: {fileID: 1539630650469741444}
   - component: {fileID: 4451790938426363235}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -70,7 +70,6 @@ MonoBehaviour:
   maxRotationScan: 90
   scanSpeed: 0.5
   targetLockOnStrength: 100
-  turretOrientation: {fileID: 5007937493238808553}
 --- !u!82 &4451790938426363235
 AudioSource:
   m_ObjectHideFlags: 0

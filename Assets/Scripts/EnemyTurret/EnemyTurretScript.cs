@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyTurretScript : MonoBehaviour
 {
     const string PLAYER_PROJECTILE_TAG = "Player Projectile";
-    private int enemyHealth = 100;
+    private float enemyHealth = 100;
 
     [SerializeField] GameObject turret;
     [SerializeField] float timeUntilActiveTurret = 3f;
@@ -19,11 +19,12 @@ public class EnemyTurretScript : MonoBehaviour
         StartCoroutine(Activation());
     }
 
-    public void DamageTurret(int damage)
+    public void DamageTurret(float damage)
     {
         if(enemyHealth > 0)
         {
             enemyHealth -= damage;
+            Debug.Log("Enemy health is now: " + enemyHealth);
         }
         else
         {

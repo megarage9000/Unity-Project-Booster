@@ -42,6 +42,7 @@ public abstract class Projectile : MonoBehaviour
 
     public virtual void OnDelete()
     {
+        bulletBody.velocity = Vector3.zero;
         bulletBody.constraints = RigidbodyConstraints.FreezePosition;
     }
 
