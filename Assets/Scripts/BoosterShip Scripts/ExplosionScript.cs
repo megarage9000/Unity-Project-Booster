@@ -10,7 +10,7 @@ public class ExplosionScript : MonoBehaviour
     private const float DEFAULT_DMG = 10f;
     private float explosionDamage;
     private float explosionDuration;
-    private bool hasHitEnemy = false;
+    private bool canHitEnemy = false;
     private ParticleSystem explosionParticles;
     private SphereCollider sphereCollider;
     
@@ -23,6 +23,7 @@ public class ExplosionScript : MonoBehaviour
     }
     public void StartExplosion()
     {
+        canHitEnemy = true;
         explosionParticles.Play();
         Destroy(gameObject, explosionDuration);
     }
@@ -46,11 +47,12 @@ public class ExplosionScript : MonoBehaviour
         GameObject detectedObj = other.gameObject;
         string tag = other.gameObject.tag;
         Debug.Log("Explosion tagged " + tag);
-        if (tag.Equals(ENEMY_TAG) && hasHitEnemy == false)
+        if (tag.Equals(ENEMY_TAG) && canHitEnemy == true)
         {
+            canHitEnemy = false;
             detectedObj.GetComponent<EnemyTurretScript>().DamageTurret(GetDamage());
             Debug.Log("Splash damage has caused " + explosionDamage + " to the enemy");
-            hasHitEnemy = true;
+            
         }
         
     }

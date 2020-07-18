@@ -71,11 +71,15 @@ public class EnemyTurretDetection : MonoBehaviour
 
         foreach (GameObject obj in detectedObjects)
         {
-            Vector3 distance = transform.position - obj.transform.position;
-            if(minDistance > distance.magnitude)
+            if(obj != null)
             {
-                minDistance = distance.magnitude;
-                closestObjectTag = obj.tag;
+
+                Vector3 distance = transform.position - obj.transform.position;
+                if(minDistance > distance.magnitude)
+                {
+                    minDistance = distance.magnitude;
+                    closestObjectTag = obj.tag;
+                }
             }
         }
 

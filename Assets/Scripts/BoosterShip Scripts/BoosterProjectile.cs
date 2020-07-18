@@ -48,14 +48,13 @@ public class BoosterProjectile : Projectile
     private void OnCollisionEnter(Collision collision)
     {
         GameObject detectedObj = collision.gameObject;
-        string tag = collision.gameObject.tag;
+        string tag = detectedObj.tag;
         
         if (tag.Equals(ENEMY_TAG) && hasHitEnemy == false)
         {
-            
+            hasHitEnemy = true;
             detectedObj.GetComponent<EnemyTurretScript>().DamageTurret(GetDamage());
             Debug.Log("Projectile has caused " + projectileDamage + " to the enemy");
-            hasHitEnemy = true;
         }
         projectile.SetActive(false);
         OnDelete();
