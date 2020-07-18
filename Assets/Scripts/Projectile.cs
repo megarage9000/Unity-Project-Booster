@@ -10,7 +10,7 @@ public abstract class Projectile : MonoBehaviour
     private const float DEFAULT_SPEED = 100f;
 
     // readonly array: https://stackoverflow.com/questions/14063203/const-array-of-strings
-    private readonly string[] IGNORED_LAYERS = { "TurretScanRange", "Projectiles", "PlayerAndEnemies" };
+    private readonly string[] IGNORED_LAYERS = { "TurretScanRange", "Projectiles", "WorldObjects" };
 
     [SerializeField] AudioClip onFireSound;
     [SerializeField] float maxProjectileRange = DEFAULT_RANGE;

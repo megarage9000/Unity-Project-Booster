@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class EnemyParalyzerProjectile : BaseEnemyProjectile
 {
-
-
-    public override void Awake()
-    {
-        base.Awake();
-    }
     public override void AffectBoosterShip(GameObject boosterShip)
     {
+        Debug.Log("Initializing paralyze effect");
         Rocket boosterScript = boosterShip.GetComponent<Rocket>();
         boosterScript.ExecuteParalysis();
 
-    }
-
-    public override void OnDelete()
-    {
-        Destroy(gameObject);
     }
 
     public override void OnFire()

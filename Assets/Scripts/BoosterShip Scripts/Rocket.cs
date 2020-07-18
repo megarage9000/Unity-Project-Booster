@@ -82,8 +82,11 @@ public class Rocket : MonoBehaviour
 
     public void ExecuteParalysis()
     {
-        thrusterControl.InitializeParalyzeEffect(paralysisDuration);
-        turretControl.InitializeParalyzeEffect(paralysisDuration);
+        if(state == RocketState.Alive)
+        {
+            thrusterControl.InitializeParalyzeEffect(paralysisDuration);
+            turretControl.InitializeParalyzeEffect(paralysisDuration);
+        }
     }
 
 

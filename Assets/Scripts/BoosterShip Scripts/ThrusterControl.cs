@@ -38,6 +38,7 @@ public class ThrusterControl : MonoBehaviour
         {
             stopParticles();
         }
+        rocketShipBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Force);
     }
 
     public void CheckThrustInput()
@@ -54,7 +55,7 @@ public class ThrusterControl : MonoBehaviour
         }
         else
         {
-            rocketShipBody.AddForce(Vector3.down * rcsGravityModifier * Time.deltaTime, ForceMode.Force);
+            
             audio.Stop();
             stopParticles();
         }
@@ -122,6 +123,7 @@ public class ThrusterControl : MonoBehaviour
 
     public void InitializeParalyzeEffect(float duration)
     {
+        StopAllCoroutines();
         StartCoroutine(ParalyzeThrust(duration));
         paralysisEffect.Play();
     }

@@ -45,6 +45,7 @@ public class BoosterTurretControl : TurretControl
 
     public void InitializeParalyzeEffect(float duration)
     {
+        StopAllCoroutines();
         StartCoroutine(ParalyzeTurret(duration));
         paralysisEffect.Play();
     }

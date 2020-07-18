@@ -5,33 +5,25 @@ using UnityEngine;
 // Class in which would modify the Boostership 
 public abstract class BaseEnemyProjectile : Projectile
 {
-    public static readonly string PLAYER_TAG = "Player";
+    private const string PLAYER_TAG = "Player";
     public abstract void AffectBoosterShip(GameObject boosterShip);
-    private Rigidbody rigidbody;
-
-    public override void Awake()
-    {
-        base.Awake();
-        rigidbody = GetComponent<Rigidbody>();
-    }
-    public string GetPlayerString()
-    {
-        return PLAYER_TAG;
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         var gameObject = collision.gameObject;
         var tag = gameObject.tag;
-        if (tag.Equals(GetPlayerString()))
+        Debug.Log("Enemy Projectile got " + tag);
+        if (tag.Equals(PLAYER_TAG))
         {
+            Debug.Log("Calling AffectBoosterShip");
             AffectBoosterShip(gameObject);
         }
         OnDelete();
-        
-        
-        
+    }
+
+    public override void OnDelete()
+    {
+        Destroy(gameObject);
     }
 
 
