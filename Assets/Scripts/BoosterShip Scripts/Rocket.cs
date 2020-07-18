@@ -48,6 +48,10 @@ public class Rocket : MonoBehaviour
                 case "Friendly":
                     break;
 
+                case "Obstacle":
+                    ExecuteDeath();
+                    break;
+
                 case "Finish":
                     ExecuteTranscending();
                     break;
@@ -72,12 +76,15 @@ public class Rocket : MonoBehaviour
 
     public void ExecuteDeath()
     {
-        state = RocketState.Dead;
-        audio.Stop();
-        audio.PlayOneShot(deathNoise);
-        deathNoiseParticles.Play();
-        Invoke("loadFirstLevel", levelLoadDelay);
-        disableRocketControl.Invoke();
+        if(state == RocketState.Alive)
+        {
+            state = RocketState.Dead;
+            audio.Stop();
+            audio.PlayOneShot(deathNoise);
+            deathNoiseParticles.Play();
+            Invoke("loadFirstLevel", levelLoadDelay);
+            disableRocketControl.Invoke();
+        }
     }
 
     public void ExecuteParalysis()
