@@ -4,13 +4,15 @@ using UnityEngine.Events;
 
 public class Rocket : MonoBehaviour
 {
-    
+
+
     enum RocketState { Alive, Transcending, Dead}
 
     //Components of rocket
     private Rigidbody rigidBody;
     private AudioSource audio;
     private RocketState state;
+    private int maxNumScenes;
 
     public bool disableCollisionDebug = false;
     public UnityEvent disableRocketControl;
@@ -31,6 +33,7 @@ public class Rocket : MonoBehaviour
 
     void Start()
     {
+        maxNumScenes = SceneManager.sceneCountInBuildSettings; 
         audio = GetComponent<AudioSource>();
         thrusterControl = thrusters.GetComponent<ThrusterControl>();
         turretControl = turret.GetComponent<BoosterTurretControl>();
@@ -95,12 +98,15 @@ public class Rocket : MonoBehaviour
 
     private void ExecuteTranscending()
     {
-        state = RocketState.Transcending;
-        audio.Stop();
-        audio.PlayOneShot(newLevelChime);
-        newLevelChimeParticles.Play();
-        Invoke("loadNextLevel", levelLoadDelay);
-        disableRocketControl.Invoke();
+        if (state == RocketState.Alive && disableCollisionDebug == false)
+        {
+            state = RocketState.Transcending;
+            audio.Stop();
+            audio.PlayOneShot(newLevelChime);
+            newLevelChimeParticles.Play();
+            disableRocketControl.Invoke();
+            Invoke("loadNextLevel", levelLoadDelay);
+        }
     }
 
     public void ExecuteDeath()
@@ -111,8 +117,8 @@ public class Rocket : MonoBehaviour
             audio.Stop();
             audio.PlayOneShot(deathNoise);
             deathNoiseParticles.Play();
-            Invoke("loadFirstLevel", levelLoadDelay);
             disableRocketControl.Invoke();
+            Invoke("loadCurrentLevel", levelLoadDelay);
         }
     }
 
@@ -128,14 +134,16 @@ public class Rocket : MonoBehaviour
 
     private void loadNextLevel()
     {
-        SceneManager.LoadScene(1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = (currentSceneIndex + 1) % maxNumScenes;
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
-    private void loadFirstLevel()
+    private void loadCurrentLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-        
+
                              
 
 }

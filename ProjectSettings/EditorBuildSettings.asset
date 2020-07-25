@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Introduction Tunnel.unity
+    guid: a08f123cf951f0b4a9311553a491b2c9
+  - enabled: 1
+    path: Assets/Scenes/Squared Cave.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
+    path: Assets/Scenes/Over the hedge.unity
     guid: 8e5673de023506a4398dc59dd94ee2dd
+  - enabled: 1
+    path: Assets/Scenes/ZigZag.unity
+    guid: a8dfb429497108944a73ea12ea7c96e3
+  - enabled: 1
+    path: Assets/Scenes/The drop.unity
+    guid: 76f8299bf7d4bbc47ab625a3fc9f001e
   m_configObjects: {}

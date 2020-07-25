@@ -63,7 +63,7 @@ public class ThrusterControl : MonoBehaviour
 
     public void CheckRotationInput()
     {
-        rocketShipBody.freezeRotation = true;
+        rocketShipBody.angularVelocity = Vector3.zero;
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -73,8 +73,6 @@ public class ThrusterControl : MonoBehaviour
         {
             ApplyRotation(RIGHT_DIRECTION);
         }
-
-        rocketShipBody.freezeRotation = false;
 
         //Enabling rotation after rotation has been added
     }
