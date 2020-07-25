@@ -46,12 +46,10 @@ public class ExplosionScript : MonoBehaviour
     {
         GameObject detectedObj = other.gameObject;
         string tag = other.gameObject.tag;
-        Debug.Log("Explosion tagged " + tag);
         if (tag.Equals(ENEMY_TAG) && canHitEnemy == true)
         {
             canHitEnemy = false;
             detectedObj.GetComponent<EnemyTurretScript>().DamageTurret(GetDamage());
-            Debug.Log("Splash damage has caused " + explosionDamage + " to the enemy");
             
         }
         

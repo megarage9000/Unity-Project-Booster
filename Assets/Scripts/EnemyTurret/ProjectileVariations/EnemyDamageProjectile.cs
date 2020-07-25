@@ -10,9 +10,4 @@ public class EnemyDamageProjectile : BaseEnemyProjectile
         boosterScript.ExecuteDeath();
     }
 
-    public override void OnFire()
-    {
-        Debug.Log("Enemy Projectile Fired!");
-    }
-
 }

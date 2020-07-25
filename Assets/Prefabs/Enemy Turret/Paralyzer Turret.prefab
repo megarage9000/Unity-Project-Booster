@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1239709779210761948, guid: 36f5558f68c97754fb5a2bb80bd226e1,
+        type: 3}
+      propertyPath: m_Name
+      value: Paralyzer Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 5007937493238808553, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,20 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1239709779210761948, guid: 36f5558f68c97754fb5a2bb80bd226e1,
-        type: 3}
-      propertyPath: m_Name
-      value: Paralyzer Turret
-      objectReference: {fileID: 0}
     - target: {fileID: 5887356059596770012, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: m_IsKinematic
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829202010314227622, guid: 36f5558f68c97754fb5a2bb80bd226e1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1539630650469741444, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
@@ -101,43 +96,48 @@ PrefabInstance:
     - target: {fileID: 1539630650469741444, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: spread
-      value: 45
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1539630650469741444, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: projectilesPerSecond
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6827786567024590032, guid: 36f5558f68c97754fb5a2bb80bd226e1,
+    - target: {fileID: 3829202010314227622, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c8a63195badb69e4089ba72afb6838ec, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3455625676467588455, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: m_Center.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6827786567024590032, guid: 36f5558f68c97754fb5a2bb80bd226e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8a63195badb69e4089ba72afb6838ec, type: 2}
     - target: {fileID: 7075679229206803118, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: turretScanRange
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7075679229206803118, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: turretScanWidth
       value: 2.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2142530415076320409, guid: 36f5558f68c97754fb5a2bb80bd226e1,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 94ae56f9467283e44a545bebfc4969c6, type: 2}
     - target: {fileID: 368955701962808444, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c8a63195badb69e4089ba72afb6838ec, type: 2}
+    - target: {fileID: 2142530415076320409, guid: 36f5558f68c97754fb5a2bb80bd226e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 94ae56f9467283e44a545bebfc4969c6, type: 2}
     - target: {fileID: 7037160032660618906, guid: 36f5558f68c97754fb5a2bb80bd226e1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

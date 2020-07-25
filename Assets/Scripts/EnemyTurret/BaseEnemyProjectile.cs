@@ -12,10 +12,8 @@ public abstract class BaseEnemyProjectile : Projectile
     {
         var gameObject = collision.gameObject;
         var tag = gameObject.tag;
-        Debug.Log("Enemy Projectile got " + tag);
         if (tag.Equals(PLAYER_TAG))
         {
-            Debug.Log("Calling AffectBoosterShip");
             AffectBoosterShip(gameObject);
         }
         OnDelete();

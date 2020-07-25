@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyTurretScript : MonoBehaviour
 {
-    const string PLAYER_PROJECTILE_TAG = "Player Projectile";
     private float enemyHealth = 100;
 
     [SerializeField] GameObject turret;
@@ -24,7 +23,6 @@ public class EnemyTurretScript : MonoBehaviour
         if(enemyHealth > 0)
         {
             enemyHealth -= damage;
-            Debug.Log("Enemy health is now: " + enemyHealth);
         }
         else
         {

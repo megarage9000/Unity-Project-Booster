@@ -32,13 +32,10 @@ public abstract class Projectile : MonoBehaviour
 
     public void Fire()
     {
-        OnFire();
         bulletBody.velocity = transform.up * projectileSpeed;
         float calculatedDistance = CalculateProjectileDistance();
         StartCoroutine(DeleteProjectileInstance(calculatedDistance));
     }
-
-    public abstract void OnFire();
 
     public virtual void OnDelete()
     {

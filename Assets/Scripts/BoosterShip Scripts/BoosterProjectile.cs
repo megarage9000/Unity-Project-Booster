@@ -26,11 +26,6 @@ public class BoosterProjectile : Projectile
         Destroy(gameObject);
     }
 
-    public override void OnFire()
-    {
-        Debug.Log("Booster Projectile Fired!");
-    }
-
     public float GetDamage()
     {
         return projectileDamage;
@@ -54,7 +49,6 @@ public class BoosterProjectile : Projectile
         {
             hasHitEnemy = true;
             detectedObj.GetComponent<EnemyTurretScript>().DamageTurret(GetDamage());
-            Debug.Log("Projectile has caused " + projectileDamage + " to the enemy");
         }
         projectile.SetActive(false);
         OnDelete();
