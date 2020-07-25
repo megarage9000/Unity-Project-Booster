@@ -12,6 +12,7 @@ public class Rocket : MonoBehaviour
     private AudioSource audio;
     private RocketState state;
 
+    public bool disableCollisionDebug = false;
     public UnityEvent disableRocketControl;
     public GameObject thrusters;
     public GameObject turret;
@@ -25,7 +26,6 @@ public class Rocket : MonoBehaviour
     [SerializeField] AudioClip newLevelChime;
     [SerializeField] ParticleSystem deathNoiseParticles;
     [SerializeField] ParticleSystem newLevelChimeParticles;
-    [SerializeField] ParticleSystem paralysisEffects;
 
     
 
@@ -37,13 +37,43 @@ public class Rocket : MonoBehaviour
         state = RocketState.Alive;
     }
 
+    private void Update()
+    {
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKeys();   
+        }
+    }
+
+    void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            disableCollisionDebug = !disableCollisionDebug;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            // Load next level debug
+            loadNextLevel();
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         string tag = collision.gameObject.tag;
 
-        if(state == RocketState.Alive && tag != "Player Projectile")
+        if(disableCollisionDebug == false)
         {
-            switch (collision.gameObject.tag)
+            CheckObjectCollisionTag(tag);
+        }
+    }
+
+    private void CheckObjectCollisionTag(string tag)
+    {
+        if (state == RocketState.Alive && tag != "Player Projectile")
+        {
+            switch (tag)
             {
                 case "Friendly":
                     break;
@@ -61,7 +91,6 @@ public class Rocket : MonoBehaviour
             }
         }
     }
-
     
 
     private void ExecuteTranscending()
@@ -76,7 +105,7 @@ public class Rocket : MonoBehaviour
 
     public void ExecuteDeath()
     {
-        if(state == RocketState.Alive)
+        if(state == RocketState.Alive && disableCollisionDebug == false)
         {
             state = RocketState.Dead;
             audio.Stop();
@@ -89,7 +118,7 @@ public class Rocket : MonoBehaviour
 
     public void ExecuteParalysis()
     {
-        if(state == RocketState.Alive)
+        if(state == RocketState.Alive && disableCollisionDebug == false)
         {
             thrusterControl.InitializeParalyzeEffect(paralysisDuration);
             turretControl.InitializeParalyzeEffect(paralysisDuration);
